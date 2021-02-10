@@ -8,5 +8,7 @@ urlpatterns = [
  path('car/', views.car, name='car'),
  path('car_details/', views.car_details, name='car_details'),
  path('contact/', views.contact, name='contact'),
- path('signup/', views.signup, name='signup'),
+# path('signup/', views.signup, name='signup'),
+# path('signin/',views.signin, name='signin'),
+
 ]
