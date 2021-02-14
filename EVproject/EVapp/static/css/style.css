@@ -3155,7 +3155,7 @@ select {
 }
 
 .contact__text ul li {
-	font-size: 15px;
+	font-size: 20px;
 	color: #353535;
 	line-height: 36px;
 	list-style: none;
@@ -3849,7 +3849,6 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
 }
 
 .social_icon span{
@@ -3916,7 +3915,6 @@ color: white;
 .links a{
 margin-left: 4px;
 }
-
 
 /* 회원가입 */
 

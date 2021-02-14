@@ -37,9 +37,9 @@ def car_details(request):
         email = request.POST.get('email')
         pwd = request.POST.get('pwd')
         name = request.POST.get('name')
-        user = User(email=email, name=name, pwd=pwd)
+        Car_Model = request.POST.get('Car_Model')
+        user = User(email=email, name=name, pwd=pwd, Car_Model=Car_Model)
         user.save()
-        logging.warn("warn로그인 입니다.")
         return HttpResponseRedirect('http://localhost:8000/EVapp/contact/')  # 회원가입시 넘어가져야 할 페이지 로그인페이지
     return render(request, 'EVapp/car_details.html', None)  # 회원가입 페이지
 
@@ -48,42 +48,16 @@ def contact(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         pwd = request.POST.get('pwd')
-
         try:
             exist_user = User.objects.get(email=email, pwd=pwd)
+            print(exist_user)
             return HttpResponseRedirect(request,'http://localhost:8000/EVapp/')
         except:
-            return render(request, 'EVapp/car_details.html/')
+            print(email)
+            return render(request, 'EVapp/contact.html/', None)
 
-        finally:
-            return render(request, 'EVapp/contact.html/')
+        #finally:
+        #    return render(request, 'EVapp/contact.html/')
     return render(request, 'EVapp/contact.html')
 
 
-
-
-"""
-def signup(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        pwd = request.POST.get('pwd')
-        name = request.POST.get('name')
-        user = User(email=email, name=name, pwd=pwd)
-        user.save()
-        return HttpResponseRedirect('http://localhost:8000/EVapp/signup/')
-    return render(request, 'EVapp/signup.html', None)
-
-
-def signin(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        pwd = request.POST.get('pwd')
-
-        try:
-            exist_user = User.objects.get(email=email, pwd=pwd)
-            return render(request, 'EVapp/signin_success.html/')
-        except:
-            return render(request, 'EVapp/signin_fail.html/')
-
-    return render(request, 'EVapp/signin.html')
-"""
