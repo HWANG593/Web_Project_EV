@@ -43,7 +43,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+#FindTitle,
+.location   {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
@@ -74,6 +76,15 @@ h5 {
 
 h6 {
 	font-size: 16px;
+}
+
+.text5 {
+    margin: 0;
+	color: #111111;
+	font-weight: 400;
+	color : white;
+	text-align: center;
+	font-family: 'Do Hyeon', sans-serif;
 }
 
 p {
@@ -1218,13 +1229,13 @@ select {
 	font-size: 15px;
 	color: #8d8d8d;
 	font-weight: 700;
-	position: relative;
+	//position: relative;
 	display: inline-block;
 	margin-right: 40px;
 }
 
 .car__item__text__inner ul li:after {
-	position: absolute;
+	//position: absolute;
 	right: -23px;
 	top: 3px;
 	height: 15px;
@@ -3836,7 +3847,8 @@ select {
 @media only screen and (min-width: 576px) and (max-width: 767px){.slider-area form.search-box{border:none}}@media (max-width: 575px){.slider-area form.search-box{border:none}}.slider-area form.search-box .input-form{width:45%;position:relative;border-top-left-radius:50px;overflow:hidden;border-bottom-left-radius:50px}@media only screen and (min-width: 576px) and (max-width: 767px){.slider-area form.search-box .input-form{width:66%;border-top-left-radius:0px;border-bottom-left-radius:0px}}@media (max-width: 575px){.slider-area form.search-box .input-form{width:100%;border-top-left-radius:0px;border-bottom-left-radius:0px}}.slider-area form.search-box .input-form input{height:60px;width:100%;color:#777777;font-size:18px;font-weight:400;padding:9px 33px 9px 32px;border:none;border-radius:0px;position:relative}@media (max-width: 575px){.slider-area form.search-box .input-form input{margin-bottom:20px}}@media only screen and (min-width: 576px) and (max-width: 767px){.slider-area form.search-box .input-form input{padding:9px 33px 9px 25px;margin-bottom:20px}}.slider-area form.search-box .input-form input::placeholder{color:#616875}@media (max-width: 575px){.slider-area form.search-box .input-form input::placeholder{font-size:13px}}.slider-area form.search-box .input-form::before{position:absolute;content:'';width:1px;height:60px;background:#e0e4f8;right:22px;top:50%;z-index:1;transform:translateY(-50%)}@media only screen and (min-width: 576px) and (max-width: 767px){.slider-area form.search-box .input-form::before{top:38%}}/*가운데*/@media (max-width: 575px){.slider-area form.search-box .input-form::before{display:none}}.slider-area form.search-box .select-form{width:34%}@media (max-width: 575px){.slider-area form.search-box .select-form{width:100%}}.slider-area form.search-box .select-form .nice-select{width:100%;height:60px;background:#fff;border-radius:0px;padding:11px 19px 11px 10px;color:#616875;line-height:42px;border:0}@media (max-width: 575px){.slider-area form.search-box .select-form .nice-select{margin-bottom:20px;padding-left:25px}}/*오른쪽*/@media only screen and (min-width: 576px) and (max-width: 767px){.slider-area form.search-box .select-form .nice-select{margin-bottom:20px;padding-left:25px}}.slider-area form.search-box .select-form .nice-select .list{width:100%}.slider-area form.search-box .select-form .nice-select.open .list{width:100%;border-radius:0;border:0}.slider-area form.search-box .select-form .nice-select::after{border-bottom:1px solid #a9b6cd;border-right:1px solid #a9b6cd;height:12px;width:12px;margin-top:-7px;right:29px}.slider-area form.search-box .search-form{width:21%;border-top-right-radius:50px;overflow:hidden;border-bottom-right-radius:50px}@media only screen and (min-width: 576px) and (max-width: 767px){.slider-area form.search-box .search-form{width:100%;border-top-right-radius:0px;border-bottom-right-radius:0px}}@media (max-width: 575px){.slider-area form.search-box .search-form{width:100%;border-top-right-radius:0px;border-bottom-right-radius:0px}}.slider-area form.search-box .search-form a{width:100%;height:60px;background:#ff3d1c;font-size:20px;line-height:1;text-align:center;color:#fff;display:block;padding:15px;border-radius:0px;text-transform:capitalize;font-family:"Sulphur Point",sans-serif;line-height:31px;font-size:15px}.slider-height{min-height:890px;background-repeat:no-repeat;background-position:center center;background-size:cover}@media only screen and (min-width: 992px) and (max-width: 1199px){.slider-height{min-height:680px}}
 
 
-/*영민*/
+
+/*영민
 
 
 .container{
@@ -3850,151 +3862,4 @@ margin-top: auto;
 margin-bottom: auto;
 width: 400px;
 }
-
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFC312;
-}
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
-}
-
-.card-header h3{
-color: white;
-}
-
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
-}
-
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
-}
-
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
-}
-
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
-}
-
-.login_btn:hover{
-color: black;
-background-color: white;
-}
-
-.links{
-color: white;
-}
-
-.links a{
-margin-left: 4px;
-}
-
-/* 회원가입 */
-
-
-    #logbox {
-
-        padding: 10px;
-        margin: 50px auto;
-        width: 340px;
-        background-color: #fff;
-        -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-        -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    }
-
-    h1 {
-        text-align: center;
-        font-size: 175%;
-        color: #757575;
-        font-weight: 300;
-    }
-
-    h1, input {
-        font-family: "Open Sans", Helvetica, sans-serif;
-    }
-
-    .input {
-        width: 75%;
-        height: 50px;
-        display: block;
-        margin: 0 auto 15px;
-        padding: 0 15px;
-        border: none;
-        border-bottom: 2px solid #ebebeb;
-    }
-    .input:focus {
-        outline: none;
-        border-bottom-color: #3CC !important;
-    }
-    .input:hover {
-        border-bottom-color: #dcdcdc;
-    }
-    .input:invalid {
-        box-shadow: none;
-    }
-
-    .pass:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px white inset;
-    }
-
-    .inputButton {
-        position: relative;
-        width: 85%;
-        height: 50px;
-        display: block;
-        margin: 30px auto 30px;
-        color: white;
-        background-color: #3CC;
-        border: none;
-        -webkit-box-shadow: 0 5px 0 #2CADAD;
-        -moz-box-shadow: 0 5px 0 #2CADAD;
-        box-shadow: 0 5px 0 #2CADAD;
-    }
-    .inputButton:hover {
-        top: 2px;
-        -webkit-box-shadow: 0 3px 0 #2CADAD;
-        -moz-box-shadow: 0 3px 0 #2CADAD;
-        box-shadow: 0 3px 0 #2CADAD;
-    }
-    .inputButton:active {
-        top: 5px;
-        box-shadow: none;
-    }
-    .inputButton:focus {
-        outline: none;
-    }
-
-    .navbar-brand{
-	        font-size: xx-large;
-    font-weight: bold;
-    font-family: cursive;
-
-	}
+*/

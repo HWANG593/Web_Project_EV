@@ -140,7 +140,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Car Listing</h2>
+                        <!--  수정  -->
+                        <h2>Electric Vehicle Introduction</h2>
                         <div class="breadcrumb__links">
                             <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
                             <span>About</span>
@@ -156,132 +157,31 @@
     <section class="car spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="car__sidebar">
-                        <div class="car__search">
-                            <h5>Car Search</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                        <div class="car__filter">
-                            <h5>Car Filter</h5>
-                            <form action="#">
-                                <select>
-                                    <option data-display="Brand">Select Brand</option>
-                                    <option value="">Acura</option>
-                                    <option value="">Audi</option>
-                                    <option value="">Bentley</option>
-                                    <<option value="">BMW</option>
-                                    <option value="">Bugatti</option>
-                                </select>
-                                <select>
-                                    <option data-display="Model">Select Model</option>
-                                    <option value="">Q3</option>
-                                    <option value="">A4 </option>
-                                    <option value="">AVENTADOR</option>
-                                </select>
-                                <select>
-                                    <option value="">Body Style</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                                <select>
-                                    <option value="">Condition</option>
-                                    <option value="">First Hand</option>
-                                    <option value="">Second Hand</option>
-                                </select>
-                                <select>
-                                    <option value="">Transmisson</option>
-                                    <option value="">Bluetooth</option>
-                                    <option value="">WiFi</option>
-                                </select>
-                                <select>
-                                    <option value="">Mileage</option>
-                                    <option value="">27</option>
-                                    <option value="">20</option>
-                                    <option value="">15</option>
-                                    <option value="">10</option>
-                                </select>
-                                <select>
-                                    <option value="">Engine</option>
-                                    <option value="">BS3</option>
-                                    <option value="">BS4</option>
-                                    <option value="">BS5</option>
-                                    <option value="">BS6</option>
-                                </select>
-                                <select>
-                                    <option value="">Colors</option>
-                                    <option value="">Red</option>
-                                    <option value="">Blue</option>
-                                    <option value="">Black</option>
-                                    <option value="">Yellow</option>
-                                </select>
-                                <div class="filter-price">
-                                    <p>Price:</p>
-                                    <div class="price-range-wrap">
-                                        <div class="filter-price-range"></div>
-                                        <div class="range-slider">
-                                            <div class="price-input">
-                                                <input type="text" id="filterAmount">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="car__filter__btn">
-                                    <button type="submit" class="site-btn">Reset FIlter</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="car__filter__option">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="car__filter__option__item">
-                                    <h6>Show On Page</h6>
-                                    <select>
-                                        <option value="">9 Car</option>
-                                        <option value="">15 Car</option>
-                                        <option value="">20 Car</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="car__filter__option__item car__filter__option__item--right">
-                                    <h6>Sort By</h6>
-                                    <select>
-                                        <option value="">Price: Highest Fist</option>
-                                        <option value="">Price: Lowest Fist</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/model3_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/model3_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/model3_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/model3_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2016</div>
-                                        <h5><a href="#">Porsche cayenne turbo s</a></h5>
+                                        <div class="label-date">판매량 1위</div>
+                                        <h5 class="text5"><a href="#">Tesla Model 3</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  &nbsp; 1회 충전 주행거리: 446 km </span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 충전방식: 콤보</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 배터리 용량: 75 kwh</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 급속 충전시간: 1 시간 30 분</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 완속 충전시간: 9 시간</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$218<span>/Month</span></h6>
+                                        <span class="car-option">가격</span>
+                                        <h6><span>5,000,000원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -289,23 +189,25 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-4.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/cona_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/cona_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/cona_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/cona_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2020</div>
-                                        <h5><a href="#">Toyota camry asv50l-jeteku</a></h5>
+                                        <div class="label-date">판매량 2위</div>
+                                        <h5 class="text5"><a href="#">{{ car_2.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  &nbsp; 1회 충전 주행거리: {{ car_2.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 충전방식: {{ car_2.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 배터리 용량: {{ car_2.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 급속 충전시간: {{ car_2.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 완속 충전시간: {{ car_2.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option sale">For Sale</span>
+                                        <span class="car-option">가격</span>
                                         <h6>$73,900</h6>
                                     </div>
                                 </div>
@@ -314,23 +216,25 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/niro_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/niro_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/niro_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/niro_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2017</div>
-                                        <h5><a href="#">Bmw s1000rr 2019 m</a></h5>
+                                        <div class="label-date">판매량 3위</div>
+                                        <h5 class="text5"><a href="#">{{ car_3.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  &nbsp; 1회 충전 주행거리: {{ car_3.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 충전방식: {{ car_3.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 배터리 용량: {{ car_3.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 급속 충전시간: {{ car_3.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  &nbsp; 완속 충전시간: {{ car_3.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
+                                        <span class="car-option">가격</span>
                                         <h6>$299<span>/Month</span></h6>
                                     </div>
                                 </div>
@@ -339,15 +243,15 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-7.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/models_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/models_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/models_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/models_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">2018</div>
-                                        <h5><a href="#">Audi q8 2020</a></h5>
+                                        <h5 class="text5"><a href="#">Audi q8 2020</a></h5>
                                         <ul>
                                             <li><span>35,000</span> mi</li>
                                             <li>Auto</li>
@@ -364,15 +268,15 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/ionic_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/ionic_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/ionic_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/ionic_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">2016</div>
-                                        <h5><a href="#">Mustang shelby gt500</a></h5>
+                                        <h5 class="text5"><a href="#">Mustang shelby gt500</a></h5>
                                         <ul>
                                             <li><span>35,000</span> mi</li>
                                             <li>Auto</li>
@@ -389,15 +293,15 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-4.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/ssoul_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/ssoul_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/ssoul_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/ssoul_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">2019</div>
-                                        <h5><a href="#">Lamborghini huracan evo</a></h5>
+                                        <h5 class="text5"><a href="#">Lamborghini huracan evo</a></h5>
                                         <ul>
                                             <li><span>35,000</span> mi</li>
                                             <li>Auto</li>
@@ -414,15 +318,15 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-7.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-4.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/zoe_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/zoe_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/zoe_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/zoe_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">2020</div>
-                                        <h5><a href="#">Lamborghini huracan evo</a></h5>
+                                        <h5 class="text5"><a href="#">Lamborghini huracan evo</a></h5>
                                         <ul>
                                             <li><span>35,000</span> mi</li>
                                             <li>Auto</li>
@@ -439,15 +343,15 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/bolt_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/bolt_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/bolt_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/bolt_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">2017</div>
-                                        <h5><a href="#">Porsche cayenne turbo s</a></h5>
+                                        <h5 class="text5"><a href="#">Porsche cayenne turbo s</a></h5>
                                         <ul>
                                             <li><span>35,000</span> mi</li>
                                             <li>Auto</li>
@@ -464,15 +368,15 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
-                                    <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
+                                    <img src="{% static 'img/cars/i3_1.png' %}" alt="">
+                                    <img src="{% static 'img/cars/i3_2.png' %}" alt="">
+                                    <img src="{% static 'img/cars/i3_3.png' %}" alt="">
+                                    <img src="{% static 'img/cars/i3_4.png' %}" alt="">
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">2020</div>
-                                        <h5><a href="#">Toyota camry asv50l-jeteku</a></h5>
+                                        <h5 class="text5"><a href="#">Toyota camry asv50l-jeteku</a></h5>
                                         <ul>
                                             <li><span>35,000</span> mi</li>
                                             <li>Auto</li>
@@ -486,12 +390,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="pagination__option">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><span class="arrow_carrot-2right"></span></a>
                     </div>
                 </div>
             </div>

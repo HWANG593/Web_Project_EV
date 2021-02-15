@@ -8,7 +8,11 @@ urlpatterns = [
  path('car/', views.car, name='car'),
  path('car_details/', views.car_details, name='car_details'),
  path('contact/', views.contact, name='contact'),
-# path('signup/', views.signup, name='signup'),
-# path('signin/',views.signin, name='signin'),
-
+ path('map/', views.map, name='map'),
+ path('loadMapData/<int:id>', views.loadMapData),
+ path('question_list/', views.question_list, name='question_list'),
+ path('board/<int:question_id>/', views.question_detail, name='question_detail'),
+ path('board/question_create/', views.question_create, name='question_create'),
+ path('board/answer_create/<int:question_id>/', views.answer_create, name='answer_create'),
 ]
+
