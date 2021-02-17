@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+
 urlpatterns = [
  path('', views.index, name='index'),
  path('about/', views.about, name='about'),
@@ -14,5 +15,10 @@ urlpatterns = [
  path('board/<int:question_id>/', views.question_detail, name='question_detail'),
  path('board/question_create/', views.question_create, name='question_create'),
  path('board/answer_create/<int:question_id>/', views.answer_create, name='answer_create'),
+ path('login/', views.login, name='login'),
+ path('signup/', views.signup, name='signup'),
+ path('logout/', views.logout, name='logout'),
 ]
+
+
 

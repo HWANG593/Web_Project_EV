@@ -98,17 +98,17 @@
                         <nav class="header__menu">
                             <!--  수정  -->
                             <ul>
-                                <li class="active"><a href="index">Home</a></li>
-                                <li><a href="{% url 'car' %}">충전소 찾기</a></li>
-                                <li><a href="{% url 'blog' %}">전기차 정보</a></li>
+                                <li ><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'map' %}">충전소 찾기</a></li>
+                                <li><a href="{% url 'car' %}">전기차 정보</a></li>
                                 <li><a href="#">구매 및 지원</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'about' %}">국고 보조금</a></li>
                                         <li><a href="{% url 'car_details' %}">지자체 보조금</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{% url 'question_list' %}">게시판</a></li>
-                                <li><a href="{% url 'contact' %}">마이페이지</a>
+                                <li class="active"><a href="{% url 'question_list' %}">게시판</a></li>
+                                <li><a href="{% url 'contact' %}">로그인</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'car_details' %}">내 정보</a></li>
                                         <li><a href="{% url 'blog_details' %}">즐겨찾기</a></li>
@@ -118,10 +118,9 @@
                         </nav>
                         <div class="header__nav__widget">
                             <div class="header__nav__widget__btn">
-                                <a href="#"><i class="fa fa-cart-plus"></i></a>
                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
                             </div>
-                            <a href="#" class="primary-btn">Add Car</a>
+                            <a href="#" class="primary-btn">회원가입</a>
                         </div>
                     </div>
                 </div>

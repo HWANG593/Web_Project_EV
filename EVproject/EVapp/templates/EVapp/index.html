@@ -1,17 +1,7 @@
 <!DOCTYPE html>
-<html lang="zxx">
 {% load static %}
-
-<head><script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"> </script>
-    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/mixitup.min.js' %}"></script>
-    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-
+<html lang="ko">
+<head>
     <meta charset="UTF-8">
     <meta name="description" content="HVAC Template">
     <meta name="keywords" content="HVAC, unica, creative, html">
@@ -89,10 +79,10 @@
                                 <span>(+12) 345 678 910</span>
                             </div>
                             <div class="header__top__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle"><i class="fa fa-github"></i></a>
+                                <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8"><i class="fa fa-youtube"></i></a>
+                                <a href="https://www.google.co.kr/search?safe=strict&source=hp&ei=rCYrYLG9EdeTr7wPqfKi2Ac&iflsig=AINFCbYAAAAAYCs0vLq8tMS5gM00fO1IIUNMuMpZdEB1&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyBAgAEAM6AggAOgUIABCxA1CQBlj1EWCwE2gCcAB4AYABkQGIAc4IkgEDMC44mAEAoAEBqgEHZ3dzLXdperABAA&sclient=gws-wiz&ved=0ahUKEwixw-n2pu3uAhXXyYsBHSm5CHsQ4dUDCAc&uact=5"><i class="fa fa-google"></i></a>
+                                <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds"><i class="fa fa-chrome"></i></a>
                             </div>
                         </div>
                     </div>
@@ -112,16 +102,16 @@
                             <!--  수정  -->
                             <ul>
                                 <li class="active"><a href="{% url 'index' %}">Home</a></li>
-                                <li><a href="{% url 'car' %}">충전소 찾기</a></li>
-                                <li><a href="{% url 'blog_details' %}">전기차 정보</a></li>
+                                <li ><a href="{% url 'map' %}">충전소 찾기</a></li>
+                                <li><a href="{% url 'car' %}">전기차 정보</a></li>
                                 <li><a href="#">구매 및 지원</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'about' %}">국고 보조금</a></li>
                                         <li><a href="{% url 'car_details' %}">지자체 보조금</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{% url 'about' %}">게시판</a></li>
-                                <li><a href="{% url 'contact' %}">마이페이지</a>
+                                <li><a href="{% url 'question_list' %}">게시판</a></li>
+                                <li><a href="{% url 'contact' %}">로그인</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'car_details' %}">내 정보</a></li>
                                         <li><a href="{% url 'blog_details' %}">즐겨찾기</a></li>
@@ -131,10 +121,9 @@
                         </nav>
                         <div class="header__nav__widget">
                             <div class="header__nav__widget__btn">
-                                <a href="#"><i class="fa fa-cart-plus"></i></a>
                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
                             </div>
-                            <a href="#" class="primary-btn">Add Car</a>
+                            <a href="#" class="primary-btn">회원가입</a>
                         </div>
                     </div>
                 </div>
@@ -165,12 +154,22 @@
                                 <div class="select-form">
                                     <div class="select-itms">
                                         <select name="select" id="select1" style="display: none;">
-                                            <option value="">All Catagories</option>
-                                            <option value="">Catagories One</option>
-                                            <option value="">Catagories Two</option>
-                                            <option value="">Catagories Three</option>
-                                            <option value="">Catagories Four</option>
-                                        </select><div class="nice-select" tabindex="0"><span class="current">All Catagories</span><ul class="list"><li data-value="" class="option selected">All Catagories</li><li data-value="" class="option">Catagories One</li><li data-value="" class="option">Catagories Two</li><li data-value="" class="option">Catagories Three</li><li data-value="" class="option">Catagories Four</li></ul></div>
+                                            <option value="">모든 지역</option>
+                                            <option value="">서울</option>
+                                            <option value="">경기도</option>
+                                            <option value="">제주도</option>
+                                            <option value="">강원도</option>
+                                        </select>
+                                        <div class="nice-select" tabindex="0">
+                                            <span class="current">모든 지역</span>
+                                                <ul class="list">
+                                                    <li data-value="" class="option selected">모든 지역</li>
+                                                    <li data-value="" class="option">서울</li>
+                                                    <li data-value="" class="option">경기도</li>
+                                                    <li data-value="" class="option">제주도</li>
+                                                    <li data-value="" class="option">강원도</li>
+                                                </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="search-form">
@@ -203,7 +202,7 @@
                         <img src="{% static 'img/services/map1.png' %}" alt="">
                         <h5 class="location">전기차 충전소 위치 제공</h5>
                         <p>현 위치 정보를 기준으로 가까운 충전소 제시함</p>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="{% url 'map' %}"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -211,7 +210,7 @@
                         <img src="{% static 'img/services/car1.png' %}" alt="">
                         <h5>전기차 모델 소개</h5>
                         <p>국내 판매량을 기준으로 전기차 모델을 소개</p>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="{% url 'car' %}"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -219,7 +218,7 @@
                         <img src="{% static 'img/services/money1.png' %}" alt="">
                         <h5>구매 보조금 정보 제공</h5>
                         <p>전기차 구매 시 보조금에 대한 정보 제공</p>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="{% url 'map' %}"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -234,19 +233,20 @@
                 <div class="col-lg-4">
                     <div class="feature__text">
                         <div class="section-title">
-                            <span>Our Feature</span>
-                            <h2>We Are a Trusted Name In Auto</h2>
+                            <span>Info</span>
+                            <h3>What is an electric car?</h3>
                         </div>
                         <div class="feature__text__desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                                viverra maecenas accumsan lacus vel facilisis.</p>
+                            <p> 전기자동차란 말 그대로 전기 배터리만으로 운영되는 무공해 자동차를 말합니다.
+                            전기로 구동되는 전동기를 사용하여 바퀴를 굴리는 자동차로서 디젤, 가솔린 등의 내연기관 자동차와 차이를 보입니다.
+                            일반적으로 전기자동차는 다음과 같이 EV, PHEV, HEV 세 종류로 나눠지게 됩니다.</p>
+                            <p> 1) EV : Electric Vehicle<br>
+                            2) PHEV : Plug In Hybrid Electric Vehicle<br>
+                            3) HEV : Hybrid Electric Vehicle</p>
                         </div>
                         <div class="feature__text__btn">
-                            <a href="#" class="primary-btn">About Us</a>
-                            <a href="#" class="primary-btn partner-btn">Our Partners</a>
+                            <a href="https://www.samsungsdi.co.kr/column/all/detail/18.html" class="primary-btn">전기차의 미래</a>
+                            <a href="https://tech.hyundaimotorgroup.com/kr/article/will-electric-cars-dominate/" class="primary-btn partner-btn">대세는 전기차</a>
                         </div>
                     </div>
                 </div>
@@ -307,226 +307,6 @@
     </section>
     <!-- Feature Section End -->
 
-    <!-- Car Section Begin -->
-    <section class="car spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Our Car</span>
-                        <h2>Best Vehicle Offers</h2>
-                    </div>
-                    <ul class="filter__controls">
-                        <li class="active" data-filter="*">Most Researched</li>
-                        <li data-filter=".sale">Latest on sale</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row car-filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2016</div>
-                                <h5><a href="#">Porsche cayenne turbo s</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option">For Rent</span>
-                                <h6>$218<span>/Month</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-4.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2020</div>
-                                <h5><a href="#">Toyota camry asv50l-jeteku</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option sale">For Sale</span>
-                                <h6>$73,900</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2017</div>
-                                <h5><a href="#">Bmw s1000rr 2019 m</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option">For Rent</span>
-                                <h6>$299<span>/Month</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-4.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2019</div>
-                                <h5><a href="#">Lamborghini huracan evo</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option sale">For Sale</span>
-                                <h6>$120,000</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-7.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2018</div>
-                                <h5><a href="#">Audi q8 2020</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option">For Rent</span>
-                                <h6>$319<span>/Month</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-6.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2016</div>
-                                <h5><a href="#">Mustang shelby gt500</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option sale">For Sale</span>
-                                <h6>$730,900</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-7.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-4.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-1.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2020</div>
-                                <h5><a href="#">Lamborghini aventador A90</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option">For Rent</span>
-                                <h6>$422<span>/Month</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix">
-                    <div class="car__item">
-                        <div class="car__item__pic__slider owl-carousel">
-                            <img src="{% static 'img/cars/car-8.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-3.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-5.jpg' %}" alt="">
-                            <img src="{% static 'img/cars/car-2.jpg' %}" alt="">
-                        </div>
-                        <div class="car__item__text">
-                            <div class="car__item__text__inner">
-                                <div class="label-date">2017</div>
-                                <h5><a href="#">Porsche cayenne turbo s</a></h5>
-                                <ul>
-                                    <li><span>35,000</span> mi</li>
-                                    <li>Auto</li>
-                                    <li><span>700</span> hp</li>
-                                </ul>
-                            </div>
-                            <div class="car__item__price">
-                                <span class="car-option">For Rent</span>
-                                <h6>$322<span>/Month</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Car Section End -->
 
     <!-- Chooseus Section Begin -->
     <section class="chooseus spad">
@@ -535,125 +315,30 @@
                 <div class="col-lg-5">
                     <div class="chooseus__text">
                         <div class="section-title">
-                            <h2>Why People Choose Us</h2>
-                            <p>Duis aute irure dolorin reprehenderits volupta velit dolore fugiat nulla pariatur
-                                excepteur sint occaecat cupidatat.</p>
+                            <h2>How it works</h2>
+                            <p>전기차는 고전압 배터리에서 전기에너지를 전기모터로 공급하여 구동력을 발생시키는 차량으로, 화석연료를 전혀 사용하지 않는 무공해 차량입니다.</p>
                         </div>
                         <ul>
-                            <li><i class="fa fa-check-circle"></i> Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit.</li>
-                            <li><i class="fa fa-check-circle"></i> Integer et nisl et massa tempor ornare vel id orci.
-                            </li>
-                            <li><i class="fa fa-check-circle"></i> Nunc consectetur ligula vitae nisl placerat tempus.
-                            </li>
-                            <li><i class="fa fa-check-circle"></i> Curabitur quis ante vitae lacus varius pretium.</li>
+                            <li><i class="fa fa-check-circle"></i> 내연차와 달리 엔진이 없이 배터리와 모터만으로 차량 구동합니다. </li>
+                            <li><i class="fa fa-check-circle"></i> 엔진이 없으므로 대기오염물질과 온실가스를 배출하지 않습니다.       </li>
+                            <li><i class="fa fa-check-circle"></i> 배터리 용량에 따라 주행가능 거리에 차이가 있습니다.              </li>
                         </ul>
-                        <a href="#" class="primary-btn">About Us</a>
+                        <div class="feature__text__btn">
+                            <span class="primary-btn">#친환경적</span>
+                            <span class="primary-btn partner-btn">#경제적</span>
+                            <span class="primary-btn">#안전성</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="chooseus__video set-bg">
             <img src="{% static 'img/chooseus-video.png' %}" alt="">
-            <a href="https://www.youtube.com/watch?v=Xd0Ok-MkqoE"
+            <a href="https://www.youtube.com/watch?v=x2hTOauA5z8"
                 class="play-btn video-popup"><i class="fa fa-play"></i></a>
         </div>
     </section>
     <!-- Chooseus Section End -->
-
-    <!-- Latest Blog Section Begin -->
-    <section class="latest spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Our Blog</span>
-                        <h2>Latest News Updates</h2>
-                        <p>Sign up for the latest Automobile Industry information and more. Duis aute<br /> irure
-                            dolorin reprehenderits volupta velit dolore fugiat.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest__blog__item">
-                        <div class="latest__blog__item__pic set-bg" data-setbg="{% static 'img/latest-blog/lb-1.jpg' %}">
-                            <ul>
-                                <li>By Polly Williams</li>
-                                <li>Dec 19, 2018</li>
-                                <li>Comment</li>
-                            </ul>
-                        </div>
-                        <div class="latest__blog__item__text">
-                            <h5>Benjamin Franklin S Method Of Habit Formation</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel
-                                facilisis.</p>
-                            <a href="#">View More <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest__blog__item">
-                        <div class="latest__blog__item__pic set-bg" data-setbg="{% static 'img/latest-blog/lb-2.jpg' %}">
-                            <ul>
-                                <li>By Mattie Ramirez</li>
-                                <li>Dec 19, 2018</li>
-                                <li>Comment</li>
-                            </ul>
-                        </div>
-                        <div class="latest__blog__item__text">
-                            <h5>How To Set Intentions That Energize You</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel
-                                facilisis.</p>
-                            <a href="#">View More <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest__blog__item">
-                        <div class="latest__blog__item__pic set-bg" data-setbg="{% static 'img/latest-blog/lb-3.jpg' %}">
-                            <ul>
-                                <li>By Nicholas Brewer</li>
-                                <li>Dec 19, 2018</li>
-                                <li>Comment</li>
-                            </ul>
-                        </div>
-                        <div class="latest__blog__item__text">
-                            <h5>Burning Desire Golden Key Or Red Herring</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Risus commodo viverra maecenas accumsan lacus vel
-                                facilisis.</p>
-                            <a href="#">View More <i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Latest Blog Section End -->
-
-    <!-- Cta Begin -->
-    <div class="cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="cta__item set-bg" data-setbg="{% static 'img/cta/cta-1.jpg' %}">
-                        <h4>Do You Want To Buy A Car</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="cta__item set-bg" data-setbg="{% static 'img/cta/cta-2.jpg' %}">
-                        <h4>Do You Want To Rent A Car</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Cta End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
@@ -662,7 +347,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>Contact Us Now!</h2>
+                            <h2>Contact Us</h2>
+                            <br><h5> 2조 전기차 웹사이트</h5><br>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -671,62 +357,45 @@
                             <div class="option__item email"><i class="fa fa-envelope-o"></i> Colorlib@gmail.com</div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="{% static 'img/footer-logo.png' %}" alt=""></a>
-                        </div>
-                        <p>Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
-                            on (+1) 96 123 8888</p>
-                        <div class="footer__social">
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="google"><i class="fa fa-google"></i></a>
-                            <a href="#" class="skype"><i class="fa fa-skype"></i></a>
+                    <div class="col-lg-2 offset-lg-1 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'map' %}"><i class="fa fa-angle-right"></i>충전소 찾기</a></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3">
-                    <div class="footer__widget">
-                        <h5>Infomation</h5>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
-                        </ul>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'car' %}"><i class="fa fa-angle-right"></i>전기차 정보</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-3">
-                    <div class="footer__widget">
-                        <h5>Infomation</h5>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
-                        </ul>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                     <div class="footer__brand">
-                        <h5>Top Brand</h5>
                         <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Abarth</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Acura</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Alfa Romeo</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Audi</a></li>
+                            <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> BMW</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Chevrolet</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Ferrari</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i> Honda</a></li>
+                            <li><a href="contact"><i class="fa fa-angle-right"></i>로그인</a></li>
                         </ul>
                     </div>
+                </div>
+
+                <div class="footer__social">
+                    <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8" class="facebook"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle" class="twitter"><i class="fa fa-github"></i></a>
+                    <a href="https://www.google.com/search?safe=strict&hl=ko&sxsrf=ALeKk02fcjZOzs1ygjVQcDQKtX4wKanO0g%3A1613440586986&source=hp&ei=SiYrYMvDOdiDoATLh6CAAg&iflsig=AINFCbYAAAAAYCs0WuOAP2uaVCh25qmHNfhW6Kic2pLM&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAgAELEDEIMBMggIABCxAxCDATINCAAQhwIQsQMQgwEQFDIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBOg0IIxDNAxDqAhAnEIsDOgoIIxDqAhAnEIsDOgIIADoFCAAQsQM6BwgAEIcCEBRQtBVYmCBg3yFoAnAAeAGAAaQBiAGpB5IBAzAuN5gBAKABAaoBB2d3cy13aXqwAQq4AQI&sclient=gws-wiz&ved=0ahUKEwjLkLTIpu3uAhXYAYgKHcsDCCAQ4dUDCAc&uact=5" class="google"><i class="fa fa-google"></i></a>
+                    <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds" class="skype"><i class="fa fa-chrome"></i></a>
+                </div>
+
                 </div>
             </div>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -760,5 +429,4 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
-
 </html>
