@@ -36,8 +36,30 @@ def index(request):
 
 def about(request):
     template = loader.get_template('EVapp/about.html')
-    return HttpResponse(template.render(None, request))
+    if request.method == 'POST':
+        car_kind = request.POST.get('sel3')
 
+        if car_kind == 'A':
+            country_money = 800
+            area_money = 400
+            area_state_money = (country_money/800)*area_money
+            total_money = country_money + area_state_money
+            context = {'country_money' : country_money,
+                       'area_state_money' : area_state_money,
+                       'total_money' : total_money}
+            return HttpResponse(template.render(context, request))
+
+        elif car_kind == 'B':
+            country_money = 700
+            area_money = 400
+            area_state_money = (country_money/800)*area_money
+            total_money = country_money + area_state_money
+            context = {'country_money' : country_money,
+                       'area_state_money' : area_state_money,
+                       'total_money' : total_money}
+            return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponse(template.render(None,request))
 
 def blog(request):
     template = loader.get_template('EVapp/blog.html')

@@ -25,6 +25,8 @@
 </head>
 
 <body>
+
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -99,17 +101,17 @@
                         <nav class="header__menu">
                             <!--  수정  -->
                             <ul>
-                                <li><a href="{% url 'index' %}">Home</a></li>
-                                <li><a href="{% url 'map' %}">충전소 찾기</a></li>
-                                <li><a href="{% url 'car' %}">전기차 정보</a></li>
+                                <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'car' %}">충전소 찾기</a></li>
+                                <li><a href="{% url 'blog' %}">전기차 정보</a></li>
                                 <li><a href="#">구매 및 지원</a>
                                     <ul class="dropdown">
-                                        <li class="active"><a href="{% url 'about' %}">국고 보조금</a></li>
+                                        <li><a href="{% url 'about' %}">국고 보조금</a></li>
                                         <li><a href="{% url 'car_details' %}">지자체 보조금</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{% url 'question_list' %}">게시판</a></li>
-                                <li><a href="{% url 'contact' %}">로그인</a>
+                                <li><a href="{% url 'about' %}">게시판</a></li>
+                                <li><a href="{% url 'contact' %}">마이페이지</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'car_details' %}">내 정보</a></li>
                                         <li><a href="{% url 'blog_details' %}">즐겨찾기</a></li>
@@ -119,9 +121,10 @@
                         </nav>
                         <div class="header__nav__widget">
                             <div class="header__nav__widget__btn">
+                                <a href="#"><i class="fa fa-cart-plus"></i></a>
                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
                             </div>
-                            <a href="#" class="primary-btn">회원가입</a>
+                            <a href="#" class="primary-btn">Add Car</a>
                         </div>
                     </div>
                 </div>
@@ -134,12 +137,13 @@
     <!-- Header Section End -->
 
     <!-- Breadcrumb End -->
+    <!-- 막아볼게 -->
     <div class="breadcrumb-option set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>About Us</h2>
+                        <h2>나의 보조금</h2>
                         <div class="breadcrumb__links">
                             <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
                             <span>About Us</span>
@@ -157,64 +161,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title about-title">
-                        <h2>Wellcome To HVAC Auto Online <br />We Provide Everything You Need To A Car</h2>
-                        <p>First I will explain what contextual advertising is. Contextual advertising means the
-                            advertising of products on a website according to<br /> the content the page is displaying.
-                            For example if the content of a website was information on a Ford truck then the
-                            advertisements</p>
-                    </div>
-                </div>
-            </div>
-            <div class="about__feature">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="about__feature__item">
-                            <img src="{% static 'img/about/af-1.png' %}" alt="">
-                            <h5>Quality Assurance System</h5>
-                            <p>It seems though that some of the biggest problems with the internet advertising trends
-                                are the lack of</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="about__feature__item">
-                            <img src="{% static 'img/about/af-2.png' %}" alt="">
-                            <h5>Accurate Testing Processes</h5>
-                            <p>Where do you register your complaints? How can you protest in any form against companies
-                                whose</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="about__feature__item">
-                            <img src="{% static 'img/about/af-3.png' %}" alt="">
-                            <h5>Infrastructure Integration Technology</h5>
-                            <p>So in final analysis: it’s true, I hate peeping Toms, but if I had to choose, I’d take
-                                one any day over an</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="about__pic">
-                        <img src="{% static 'img/about/about-pic.jpg' %}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="about__item">
-                        <h5>Our Mission</h5>
-                        <p>Now, I’m not like Robin, that weirdo from my cultural anthropology class; I think that
-                            advertising is something that has its place in our society; which for better or worse is
-                            structured along a marketplace economy. But, simply because I feel advertising has a right
-                            to exist, doesn’t mean that I like or agree with it, in its</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="about__item">
-                        <h5>Our Vision</h5>
-                        <p>Where do you register your complaints? How can you protest in any form against companies
-                            whose advertising techniques you don’t agree with? You don’t. And on another point of
-                            difference between traditional products and their advertising and those of the internet
-                            nature, simply ignoring internet advertising is </p>
+                        <h2>2021년 전기승용차 보조금 계산기</h2>
+                        <p>올해 변경된 보조금 정책을 반영하여 이용자의 지역, 구매 희망 차종을 통하여 보조금을 계산할 수 있다.</p>
                     </div>
                 </div>
             </div>
@@ -223,304 +171,80 @@
     <!-- About Us Section End -->
 
     <!-- Call Section Begin -->
-    <section class="call spad set-bg" data-setbg="{% static 'img/about/call-bg.jpg' %}">
+    <section class="call spad set-bg" data-setbg="{% static 'img/about/calculator.png' %}">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-6">
-                    <div class="call__text">
-                        <div class="section-title">
-                            <h2>Request A Call Back</h2>
-                            <p>Posters had been a very beneficial marketing tool because it had paved to deliver an
-                                effective message that conveyed customer’s</p>
-                        </div>
-                        <a href="#">Contact Us</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 offset-lg-1 col-md-6">
-                    <form action="#" class="call__form">
+                <div class="col-lg-12 col-md-6">
+                    <form method="POST" class="call__form">
+                        {% csrf_token %}
                         <div class="row">
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Name">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Email">
-                            </div>
-                            <div class="col-lg-6">
-                                <input type="text" placeholder="Phone">
-                            </div>
-                            <div class="col-lg-6">
-                                <select>
-                                    <option value="">Choose Our Services</option>
-                                    <option value="">Buy Cars</option>
-                                    <option value="">Sell Cars</option>
-                                    <option value="">Wash Cars</option>
+                            <div class="col-lg-3">
+                                <select name="sel1" id="sel1">
                                 </select>
                             </div>
+                            <div class="col-lg-3">
+                                <select name="sel2" id="sel2" style="">
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <select name="sel3" id="sel3" style="">
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="submit" class="site-btn">계산 실행</button>
+                            </div>
                         </div>
-                        <button type="submit" class="site-btn">Submit Now</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
     <!-- Call Section End -->
-
-    <!-- Team Section Begin -->
-    <section class="team spad">
+    <br>
+    <br>
+    <!-- <section class="about spad"> </section> -->
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title team-title">
-                        <span>Our Team</span>
-                        <h2>Meet Our Expert</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team__item">
-                        <div class="team__item__pic">
-                            <img src="{% static 'img/about/team-1.jpg' %}" alt="">
-                        </div>
-                        <div class="team__item__text">
-                            <h5>John Smith</h5>
-                            <span>Marketing</span>
+            <div class="about__feature">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">국비 보조금<img class="moneyim" src="{% static 'img/about/money.png' %}" alt="" /></h5>
+                                <h1 class="mt-1 mb-3">{{country_money}} 만원</h1>
+                                <div class="mb-1">
+                                    <span class="text-muted">가격계수</span>
+                                    <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 100% </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team__item">
-                        <div class="team__item__pic">
-                            <img src="{% static 'img/about/team-2.jpg' %}" alt="">
-                        </div>
-                        <div class="team__item__text">
-                            <h5>Christine Wise</h5>
-                            <span>C.E.O</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team__item">
-                        <div class="team__item__pic">
-                            <img src="{% static 'img/about/team-3.jpg' %}" alt="">
-                        </div>
-                        <div class="team__item__text">
-                            <h5>Sean Robbins</h5>
-                            <span>Manager</span>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">지자체 보조금<img class="moneyim" src="{% static 'img/about/money.png' %}" alt="" /></h5>
+                                <h1 class="mt-1 mb-3">{{area_state_money}} 만원</h1>
+                                <div class="mb-1">
+                                    <span class="text-muted">Since last week</span>
+                                    <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team__item">
-                        <div class="team__item__pic">
-                            <img src="{% static 'img/about/team-4.jpg' %}" alt="">
-                        </div>
-                        <div class="team__item__text">
-                            <h5>Lucy Myers</h5>
-                            <span>Delivary</span>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4"  style="color:#17a2b8;font-weight:700;font-size:17px;">최종 보조금<img class="moneyim" src="{% static 'img/about/money.png' %}" alt="" /></h5>
+                                <h1 class="mt-1 mb-3">{{total_money}} 만원</h1>
+                                <div class="mb-1">
+                                    <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
+                                    <span class="text-muted">Since last week</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Team Section End -->
-
-    <!-- Testimonial Section Begin -->
-    <section class="testimonial spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title testimonial-title">
-                        <span>Testimonials</span>
-                        <h2>What People Say About Us</h2>
-                        <p>Our customers are our biggest supporters. What do they think of us? Lorem</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="testimonial__slider owl-carousel">
-                    <div class="col-lg-6">
-                        <div class="testimonial__item">
-                            <div class="testimonial__item__author">
-                                <div class="testimonial__item__author__pic">
-                                    <img src="{% static 'img/testimonial/testimonial-1.png' %}" alt="">
-                                </div>
-                                <div class="testimonial__item__author__text">
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>John Smith /<span> CEO Colorlib</span></h5>
-                                </div>
-                            </div>
-                            <p>For one thing they usually step all over the hedges and plants on the side of someone’s
-                                house killing</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testimonial__item">
-                            <div class="testimonial__item__author">
-                                <div class="testimonial__item__author__pic">
-                                    <img src="{% static 'img/testimonial/testimonial-2.png' %}" alt="">
-                                </div>
-                                <div class="testimonial__item__author__text">
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>Emma Sandoval /<span> Marketing Manager</span></h5>
-                                </div>
-                            </div>
-                            <p>It seems though that some of the biggest problems with the internet advertising trends
-                                are the lack of</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testimonial__item">
-                            <div class="testimonial__item__author">
-                                <div class="testimonial__item__author__pic">
-                                    <img src="{% static 'img/testimonial/testimonial-1.png' %}" alt="">
-                                </div>
-                                <div class="testimonial__item__author__text">
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>John Smith /<span> CEO Colorlib</span></h5>
-                                </div>
-                            </div>
-                            <p>For one thing they usually step all over the hedges and plants on the side of someone’s
-                                house killing</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="testimonial__item">
-                            <div class="testimonial__item__author">
-                                <div class="testimonial__item__author__pic">
-                                    <img src="{% static 'img/testimonial/testimonial-2.png' %}" alt="">
-                                </div>
-                                <div class="testimonial__item__author__text">
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <h5>Emma Sandoval /<span> Marketing Manager</span></h5>
-                                </div>
-                            </div>
-                            <p>It seems though that some of the biggest problems with the internet advertising trends
-                                are the lack of</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonial Section End -->
-
-    <!-- Counter Begin -->
-    <div class="counter spad set-bg" data-setbg="{% static 'img/counter-bg.jpg' %}">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <h2 class="counter-num">1922</h2>
-                        <p>Vehicles Stock</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <h2 class="counter-num">1500</h2>
-                        <strong>+</strong>
-                        <p>Vehicles Sale</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <h2 class="counter-num">1922</h2>
-                        <p>Dealer Reviews</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="counter__item">
-                        <h2 class="counter-num">5100</h2>
-                        <p>Happy Clients</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Counter End -->
-
-    <!-- Clients Begin -->
-    <div class="clients spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title client-title">
-                        <span>Partner</span>
-                        <h2>Our Clients</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-1.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-2.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-3.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-2.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-4.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-5.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-6.png' %}" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <a href="#" class="client__item">
-                        <img src="{% static 'img/clients/client-7.png' %}" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Clients End -->
-
     <!-- Footer Section Begin -->
     <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
         <div class="container">
@@ -528,8 +252,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>Contact Us</h2>
-                            <br><h5> 2조 전기차 웹사이트</h5><br>
+                            <h2>Contact Us Now!</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -538,45 +261,62 @@
                             <div class="option__item email"><i class="fa fa-envelope-o"></i> Colorlib@gmail.com</div>
                         </div>
                     </div>
-                    <div class="col-lg-2 offset-lg-1 col-md-3">
-                        <div class="footer__widget">
-                            <ul>
-                                <li><a href="{% url 'map' %}"><i class="fa fa-angle-right"></i>충전소 찾기</a></li>
-                            </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="{% static 'img/footer-logo.png' %}" alt=""></a>
+                        </div>
+                        <p>Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
+                            on (+1) 96 123 8888</p>
+                        <div class="footer__social">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="google"><i class="fa fa-google"></i></a>
+                            <a href="#" class="skype"><i class="fa fa-skype"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-3">
-                        <div class="footer__widget">
-                            <ul>
-                                <li><a href="{% url 'car' %}"><i class="fa fa-angle-right"></i>전기차 정보</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3">
+                    <div class="footer__widget">
+                        <h5>Infomation</h5>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-2 col-md-3">
-                        <div class="footer__widget">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer__widget">
+                        <h5>Infomation</h5>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="footer__brand">
+                        <h5>Top Brand</h5>
                         <ul>
-                            <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Abarth</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Acura</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Alfa Romeo</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Audi</a></li>
                         </ul>
                         <ul>
-                            <li><a href="contact"><i class="fa fa-angle-right"></i>로그인</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> BMW</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Chevrolet</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Ferrari</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Honda</a></li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="footer__social">
-                    <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8" class="facebook"><i class="fa fa-youtube-play"></i></a>
-                    <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle" class="twitter"><i class="fa fa-github"></i></a>
-                    <a href="https://www.google.com/search?safe=strict&hl=ko&sxsrf=ALeKk02fcjZOzs1ygjVQcDQKtX4wKanO0g%3A1613440586986&source=hp&ei=SiYrYMvDOdiDoATLh6CAAg&iflsig=AINFCbYAAAAAYCs0WuOAP2uaVCh25qmHNfhW6Kic2pLM&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAgAELEDEIMBMggIABCxAxCDATINCAAQhwIQsQMQgwEQFDIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBOg0IIxDNAxDqAhAnEIsDOgoIIxDqAhAnEIsDOgIIADoFCAAQsQM6BwgAEIcCEBRQtBVYmCBg3yFoAnAAeAGAAaQBiAGpB5IBAzAuN5gBAKABAaoBB2d3cy13aXqwAQq4AQI&sclient=gws-wiz&ved=0ahUKEwjLkLTIpu3uAhXYAYgKHcsDCCAQ4dUDCAc&uact=5" class="google"><i class="fa fa-google"></i></a>
-                    <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds" class="skype"><i class="fa fa-chrome"></i></a>
-                </div>
-
                 </div>
             </div>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -602,13 +342,496 @@
     <!-- Js Plugins -->
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<!--    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>-->
     <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'js/mixitup.min.js' %}"></script>
     <script src="{% static 'js/jquery.slicknav.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+$( document ).ready(function(){
+
+	//테스트용 데이터
+	var sel1 = {
+    	" ":"지역",
+    	"Seoul":"서울",
+        "Busan":"부산",
+        "Daegu":"대구",
+        "Incheon":"인천",
+        "Gwangju":"광주",
+        "Daejeon":"대전",
+        "Ulsan":"울산",
+        "Sejong":"세종",
+        "Gyeonggi":"경기",
+        "Kangwon":"강원",
+        "Chungbuk":"충북",
+        "Chungnam":"충남",
+        "Jeonbuk":"전북",
+        "Jeonnam":"전남",
+        "Gyeongbuk":"경북",
+        "Gyeongnam":"경남",
+        "Jeju":"제주"
+
+    };
+
+    //sel1이 여성일경우
+    var sel2_1 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    //sel1이 남성일경우
+    var sel2_2 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_3 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_4 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_5 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_6 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_7 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_8 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_9 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_10 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_11 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_12 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_13 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_14 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_15 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_16 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel2_17 = {
+    	" ":"브랜드 선택",
+    	"HYUNDAI": "현대",
+    	"KIA": "기아",
+        "SAMSUNG": "르노삼성",
+        "BMW": "BMW",
+        "GM": "GM",
+        "HANBUL": "한불모터스",
+        "TESLA": "테슬라",
+        "JAGUAR": "재규어",
+        "BENZ": "벤츠",
+        "AUDI": "아우디",
+        "SEMISISCO": "세미시스코"
+    };
+
+    var sel3_1 = {
+    	" ":"차종",
+    	"A": "코나(기본형)",
+        "B": "코나(경제형)",
+        "C": "아이오닉(HP)",
+        "D": "아이오닉(PTC)"
+    };
+    var sel3_2 = {
+    	" ":"차종",
+    	"E": "니로(HP)",
+        "F": "니로(PTC)",
+        "G": "니로 EV",
+        "H": "쏘울(기본형)",
+        "I": "쏘울(도심형)"
+    };
+
+    var sel3_3 = {
+    	" ":"차종",
+    	"J": "ZOE ZEN",
+        "K": "ZOE INTENS ECO",
+        "L": "ZOE INTENS"
+    };
+
+    var sel3_4 = {
+    	" ":"차종",
+    	"M": "i3 120Ah Lux",
+        "N": "i3 120Ah SoL+"
+    };
+
+    var sel3_5 = {
+    	" ":"차종",
+    	"O": "볼트 EV LT",
+        "P": "볼트 EV Primier"
+    };
+
+    var sel3_6 = {
+    	" ":"차종",
+    	"Q": "Peugeot e-208",
+        "R": "DS3 E-tense",
+        "S": "Peugeot e-2008"
+    };
+
+    var sel3_7 = {
+    	" ":"차종",
+    	"T": "Model S",
+        "U": "Model 3 (SRP RWD)",
+        "V": "Model 3 (Long Range)",
+        "W": "Model 3 (Performance)"
+    };
+
+    var sel3_8 = {
+    	" ":"차종",
+    	"X": "I-PACE EV400"
+    };
+
+    var sel3_9 = {
+    	" ":"차종",
+    	"Y": "EQC 400 4M",
+        "Z": "EQC 400 4MATIC"
+    };
+
+    var sel3_10 = {
+    	" ":"차종",
+    	"AA": "e-tron 55 quattro"
+    };
+
+    var sel3_11 = {
+    	" ":"차종",
+    	"BB": "SMART EV Z"
+    };
+
+
+
+   //sel1에 서버에서 받아온 값을 넣기위해..
+   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
+   // map[키이름] = 그 키에 해당하는 value를 반환한다.
+   //retOption(데이터맵, select함수 id)
+   function retOption(mapArr, select){
+    	var html = '';
+    	var keys = Object.keys(mapArr);
+    	for (var i in keys) {
+    	    html += "<option value=" + "'" + keys[i] + "'>" + mapArr[keys[i]] + "</option>";
+    	}
+
+        $("select[id='" + select +"']").html(html);
+   }
+
+   $("select[id='sel1']").on("change", function(){
+    	var option = $("#sel1 option:selected").val();
+        var subSelName = '';
+    	if(option == "Seoul") {
+        	subSelName = "sel2_1";
+
+        } else if(option == "Busan"){
+        	subSelName = "sel2_2";
+
+        } else if(option == "Daegu"){
+        	subSelName = "sel2_3";
+
+        } else if(option == "Incheon"){
+        	subSelName = "sel2_4";
+
+        } else if(option == "Gwangju"){
+        	subSelName = "sel2_5";
+
+        } else if(option == "Daejeon"){
+        	subSelName = "sel2_6";
+
+        } else if(option == "Ulsan"){
+        	subSelName = "sel2_7";
+
+        } else if(option == "Sejong"){
+        	subSelName = "sel2_8";
+
+        } else if(option == "Gyeonggi"){
+        	subSelName = "sel2_9";
+
+        } else if(option == "Kangwon"){
+        	subSelName = "sel2_10";
+
+        } else if(option == "Chungbuk"){
+        	subSelName = "sel2_11";
+
+        } else if(option == "Chungnam"){
+        	subSelName = "sel2_12";
+
+        } else if(option == "Jeonbuk"){
+        	subSelName = "sel2_13";
+
+        } else if(option == "Jeonnam"){
+        	subSelName = "sel2_14";
+
+        } else if(option == "Gyeongbuk"){
+        	subSelName = "sel2_15";
+
+        } else if(option == "Gyeongnam"){
+        	subSelName = "sel2_16";
+
+        } else if(option == "Jeju"){
+        	subSelName = "sel2_17";
+
+        } else{
+        	$("#sel2").hide();
+        	return;
+        }
+        $("#sel2").show();
+        retOption(eval(subSelName), "sel2");
+    })
+
+   $("select[id='sel2']").on("change", function(){
+    	var option = $("#sel2 option:selected").val();
+        var subSelName = '';
+    	if(option == "HYUNDAI") {
+        	subSelName = "sel3_1";
+
+        } else if(option == "KIA"){
+        	subSelName = "sel3_2";
+
+        } else if(option == "SAMSUNG"){
+        	subSelName = "sel3_3";
+
+        } else if(option == "BMW"){
+        	subSelName = "sel3_4";
+
+        } else if(option == "GM"){
+        	subSelName = "sel3_5";
+
+        } else if(option == "HANBUL"){
+        	subSelName = "sel3_6";
+
+        } else if(option == "TESLA"){
+        	subSelName = "sel3_7";
+
+        } else if(option == "JAGUAR"){
+        	subSelName = "sel3_8";
+
+        } else if(option == "BENZ"){
+        	subSelName = "sel3_9";
+
+        } else if(option == "AUDI"){
+        	subSelName = "sel3_10";
+
+        } else if(option == "SEMISISCO"){
+        	subSelName = "sel3_11";
+
+        } else{
+        	$("#sel3").hide();
+        	return;
+        }
+        $("#sel3").show();
+        retOption(eval(subSelName), "sel3");
+    })
+
+   retOption(sel1, "sel1");
+   retOption(sel2, "sel2");
+   retOption(sel3, "sel3");
+});
+</script>
+
 </body>
 
 </html>
