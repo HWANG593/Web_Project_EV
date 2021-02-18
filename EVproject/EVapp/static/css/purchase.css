@@ -1,0 +1,112 @@
+/* 재웅 추가 css*/
+
+.logoimg {
+    max-width: 80%;
+}
+
+.logoimg2 {
+    max-width: 60%;
+}
+
+.logobmw {
+    max-width: 50%;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card-title {
+    color: #495057;
+    margin-bottom: .5rem;
+    text-align: left;
+}
+
+.mb-3 {
+    margin-bottom: 1rem!important;
+    color: black
+    font-size: 1.75rem;
+    font-family: 'NanumSquare', sans-serif;
+    text-align: left;
+    line-height: 1.2;
+}
+.mt-1 {
+    margin-top: .25rem!important;
+    color: black;
+    font-size: 1.75rem;
+    font-family: 'NanumSquare', sans-serif;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.mb-4 {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+
+#sel1 {
+    width: 200px;
+    height: 49px;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+    padding-left: 18px;
+    padding-right: 30px;
+    text-align: left !important;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+#sel2 {
+    width: 200px;
+    height: 49px;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+    padding-left: 18px;
+    padding-right: 30px;
+    text-align: left !important;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+#sel3 {
+    width: 200px;
+    height: 49px;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+    padding-left: 18px;
+    padding-right: 30px;
+    text-align: left !important;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+.text-muted {
+    color: #6c757d!important;
+    font-size: 12px;
+}
+
+.text-success {
+    color: #28a745!important;
+    font-size: 13px;
+}
+
+.bojo2 {
+    font-size: 18px;
+}
+
+#cal_process {
+    color: black;
+    font-weight: 500;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.section-title1 {
+   text-align: center;
+}

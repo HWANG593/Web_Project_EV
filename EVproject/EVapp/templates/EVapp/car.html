@@ -66,21 +66,21 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul class="header__top__widget">
-                            <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li>
-                            <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li>
+                            <li><i class="fa fa-clock-o"></i> Week day: 00:00 am to 24:00 pm</li>
+                            <li><i class="fa fa-envelope-o"></i> hys9633@naver.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="header__top__right">
                             <div class="header__top__phone">
                                 <i class="fa fa-phone"></i>
-                                <span>(+12) 345 678 910</span>
+                                <span>02-1544-9001</span>
                             </div>
                             <div class="header__top__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle"><i class="fa fa-github"></i></a>
+                                <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8"><i class="fa fa-youtube"></i></a>
+                                <a href="https://www.google.co.kr/search?safe=strict&source=hp&ei=rCYrYLG9EdeTr7wPqfKi2Ac&iflsig=AINFCbYAAAAAYCs0vLq8tMS5gM00fO1IIUNMuMpZdEB1&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyBAgAEAM6AggAOgUIABCxA1CQBlj1EWCwE2gCcAB4AYABkQGIAc4IkgEDMC44mAEAoAEBqgEHZ3dzLXdperABAA&sclient=gws-wiz&ved=0ahUKEwixw-n2pu3uAhXXyYsBHSm5CHsQ4dUDCAc&uact=5"><i class="fa fa-google"></i></a>
+                                <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds"><i class="fa fa-chrome"></i></a>
                             </div>
                         </div>
                     </div>
@@ -99,21 +99,21 @@
                         <nav class="header__menu">
                             <!--  수정  -->
                             <ul>
-                                <li ><a href="{% url 'index' %}">Home</a></li>
-                                <li ><a href="{% url 'map' %}">충전소 찾기</a></li>
-                                <li class="active"><a href="{% url 'car' %}">전기차 정보</a></li>
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'map' %}">충전소 찾기</a></li>
+                                <li class="active"><a href="{% url 'car' %}">전기차 모델</a></li>
                                 <li><a href="#">구매 및 지원</a>
                                     <ul class="dropdown">
-                                        <li><a href="{% url 'about' %}">국고 보조금</a></li>
-                                        <li><a href="{% url 'car_details' %}">지자체 보조금</a></li>
+                                        <li><a href="{% url 'purchase' %}">보조금 계산</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{% url 'question_list' %}">게시판</a></li>
-                                <li><a href="{% url 'contact' %}">로그인</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{% url 'car_details' %}">내 정보</a></li>
-                                        <li><a href="{% url 'blog_details' %}">즐겨찾기</a></li>
-                                    </ul>
+                                <li>
+                                {% if user.is_authenticated %}
+                                    <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}">로그인</a>
+                                    {% endif %}
                                 </li>
                             </ul>
                         </nav>
@@ -121,7 +121,7 @@
                             <div class="header__nav__widget__btn">
                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
                             </div>
-                            <a href="#" class="primary-btn">회원가입</a>
+                            <a href="{% url 'signup'%}" class="primary-btn">회원가입</a>
                         </div>
                     </div>
                 </div>
@@ -133,14 +133,13 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Breadcrumb End -->
     <div class="breadcrumb-option set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <!--  수정  -->
-                        <h2>Electric Vehicle Introduction</h2>
+                        <h2>전기차 모델</h2>
                         <div class="breadcrumb__links">
                             <a href="{% url 'index' %}"><i class="fa fa-home"></i> Home</a>
                             <span>About</span>
@@ -151,12 +150,15 @@
         </div>
     </div>
     <!-- Breadcrumb Begin -->
-
     <!-- Car Section Begin -->
     <section class="car spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="section-title client-title">
+                        <span>EV rank</span>
+                        <h2>Best 9</h2>
+                    </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
@@ -169,18 +171,18 @@
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
                                         <div class="label-date">판매량 1위</div>
-                                        <h5 class="text5"><a href="#">Tesla Model 3</a></h5>
+                                        <h5 class="text5"><a href="#">{{ car_1.name }}</a></h5>
                                         <ul>
-                                            <li><span>✔ &nbsp;  &nbsp; 1회 충전 주행거리: 446 km </span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 충전방식: 콤보</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 배터리 용량: 75 kwh</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 급속 충전시간: 1 시간 30 분</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 완속 충전시간: 9 시간</span></li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_1.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_1.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_1.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_1.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_1.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
                                         <span class="car-option">가격</span>
-                                        <h6><span>5,000,000원</span></h6>
+                                        <h6>{{ car_1.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -198,16 +200,16 @@
                                         <div class="label-date">판매량 2위</div>
                                         <h5 class="text5"><a href="#">{{ car_2.name }}</a></h5>
                                         <ul>
-                                            <li><span>✔ &nbsp;  &nbsp; 1회 충전 주행거리: {{ car_2.onedistance }} km </span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 충전방식: {{ car_2.chargetype }} </span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 배터리 용량: {{ car_2.battery }} kwh</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 급속 충전시간: {{ car_2.fastcharge }}</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 완속 충전시간: {{ car_2.slowcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_2.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_2.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_2.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_2.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_2.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
                                         <span class="car-option">가격</span>
-                                        <h6>$73,900</h6>
+                                        <h6>{{ car_2.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -225,20 +227,26 @@
                                         <div class="label-date">판매량 3위</div>
                                         <h5 class="text5"><a href="#">{{ car_3.name }}</a></h5>
                                         <ul>
-                                            <li><span>✔ &nbsp;  &nbsp; 1회 충전 주행거리: {{ car_3.onedistance }} km </span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 충전방식: {{ car_3.chargetype }} </span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 배터리 용량: {{ car_3.battery }} kwh</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 급속 충전시간: {{ car_3.fastcharge }}</span></li>
-                                            <li><span>✔ &nbsp;  &nbsp; 완속 충전시간: {{ car_3.slowcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_3.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_3.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_3.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_3.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_3.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
                                         <span class="car-option">가격</span>
-                                        <h6>$299<span>/Month</span></h6>
+                                        <h6>{{ car_3.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
                         <div class="col-lg-4 col-md-4">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
@@ -249,17 +257,19 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2018</div>
-                                        <h5 class="text5"><a href="#">Audi q8 2020</a></h5>
+                                        <div class="label-date">테슬라</div>
+                                        <h5 class="text5"><a href="#">{{ car_4.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_4.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_4.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_4.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_4.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_4.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$319<span>/Month</span></h6>
+                                        <span class="car-option">가격</span>
+                                        <h6>{{ car_4.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -274,17 +284,19 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2016</div>
-                                        <h5 class="text5"><a href="#">Mustang shelby gt500</a></h5>
+                                        <div class="label-date">현대</div>
+                                        <h5 class="text5"><a href="#">{{ car_5.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_5.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_5.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_5.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_5.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_5.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option sale">For Sale</span>
-                                        <h6>$730,900</h6>
+                                        <span class="car-option">가격</span>
+                                        <h6>{{ car_5.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -297,19 +309,21 @@
                                     <img src="{% static 'img/cars/ssoul_3.png' %}" alt="">
                                     <img src="{% static 'img/cars/ssoul_4.png' %}" alt="">
                                 </div>
-                                <div class="car__item__text">
+                               <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2019</div>
-                                        <h5 class="text5"><a href="#">Lamborghini huracan evo</a></h5>
+                                        <div class="label-date">기아</div>
+                                        <h5 class="text5"><a href="#">{{ car_6.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_6.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_6.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_6.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_6.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_6.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$319<span>/Month</span></h6>
+                                        <span class="car-option">가격</span>
+                                        <h6>{{ car_6.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -324,17 +338,19 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2020</div>
-                                        <h5 class="text5"><a href="#">Lamborghini huracan evo</a></h5>
+                                        <div class="label-date">르노 삼성</div>
+                                        <h5 class="text5"><a href="#">{{ car_7.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_7.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_7.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_7.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_7.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_7.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option sale">For Sale</span>
-                                        <h6>$120,000</h6>
+                                        <span class="car-option">가격</span>
+                                        <h6>{{ car_7.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -349,17 +365,19 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2017</div>
-                                        <h5 class="text5"><a href="#">Porsche cayenne turbo s</a></h5>
+                                        <div class="label-date">GM</div>
+                                        <h5 class="text5"><a href="#">{{ car_8.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_8.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_8.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_8.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_8.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_8.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$319<span>/Month</span></h6>
+                                        <span class="car-option">가격</span>
+                                        <h6>{{ car_8.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -374,17 +392,19 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2020</div>
-                                        <h5 class="text5"><a href="#">Toyota camry asv50l-jeteku</a></h5>
+                                        <div class="label-date">BMW</div>
+                                        <h5 class="text5"><a href="#">{{ car_9.name }}</a></h5>
                                         <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                            <li><span>✔ &nbsp;  1회 충전 주행거리 : &nbsp;{{ car_9.onedistance }} km </span></li>
+                                            <li><span>✔ &nbsp;  충전방식 : &nbsp;{{ car_9.chargetype }} </span></li>
+                                            <li><span>✔ &nbsp;  배터리 용량 : &nbsp;{{ car_9.battery }} kwh</span></li>
+                                            <li><span>✔ &nbsp;  급속 충전시간 : &nbsp;{{ car_9.fastcharge }}</span></li>
+                                            <li><span>✔ &nbsp;  완속 충전시간 : &nbsp;{{ car_9.slowcharge }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">
-                                        <span class="car-option sale">For sale</span>
-                                        <h6>$73,900</h6>
+                                        <span class="car-option">가격</span>
+                                        <h6>{{ car_9.price }} <span>만원</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -393,6 +413,53 @@
                 </div>
             </div>
         </div>
+
+        <!-- Clients Begin -->
+        <div class="clients spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title client-title">
+                            <span>Electric vehicle</span>
+                            <h2>Brand list</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="#" class="client__item">
+                            <img class="logoimg" src="{% static 'img/cars/logo_tesla.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="#" class="client__item">
+                            <img class="logoimg" src="{% static 'img/cars/logo_hyundai.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="#" class="client__item">
+                            <img class="logoimg" src="{% static 'img/cars/logo_kia.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="#" class="client__item">
+                            <img class="logoimg2" src="{% static 'img/cars/logo_samsung.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="#" class="client__item">
+                            <img class="logobmw" src="{% static 'img/cars/logo_bmw.png' %}" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="#" class="client__item">
+                            <img class="logoimg2" src="{% static 'img/cars/logo_chevrolet.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Clients End -->
     </section>
     <!-- Car Section End -->
 
@@ -409,8 +476,8 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__option">
-                            <div class="option__item"><i class="fa fa-phone"></i> (+12) 345 678 910</div>
-                            <div class="option__item email"><i class="fa fa-envelope-o"></i> Colorlib@gmail.com</div>
+                            <div class="option__item"><i class="fa fa-phone"></i> 02-1544-9001</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> hys9633@naver.com</div>
                         </div>
                     </div>
                     <div class="col-lg-2 offset-lg-1 col-md-3">
@@ -430,7 +497,7 @@
                     <div class="col-lg-2 col-md-3">
                         <div class="footer__widget">
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
+                                <li><a href="{% url 'purchase' %}"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
                             </ul>
                         </div>
                     </div>
@@ -440,7 +507,7 @@
                             <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
                         </ul>
                         <ul>
-                            <li><a href="contact"><i class="fa fa-angle-right"></i>로그인</a></li>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-angle-right"></i>로그인</a></li>
                         </ul>
                     </div>
                 </div>

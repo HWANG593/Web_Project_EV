@@ -117,7 +117,7 @@
                         <nav class="header__menu">
                             <!--  수정  -->
                             <ul>
-                                <li ><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'index' %}">Home</a></li>
                                 <li><a href="{% url 'map' %}">충전소 찾기</a></li>
                                 <li><a href="{% url 'car' %}">전기차 정보</a></li>
                                 <li><a href="#">구매 및 지원</a>
@@ -171,7 +171,7 @@
 
 
 <!-- 수정 시작 부분 -->
-<!--
+    <!-- Contact Section Begin -->
     <section class="contact spad">
         <div class="container">
             <div class="row">
@@ -187,11 +187,11 @@
                         </ul>
                     </div>
                 </div>
--->
 
-				<div class="card-1">
-				<article class="card-body-2">
-				<a href="{% url 'car_details' %}" class="float-right btn btn-outline-primary">Sign up</a>
+
+				<div class="card">
+				<article class="card-body">
+				<a href="http://localhost:8000/EVapp/car_details/" class="float-right btn btn-outline-primary">Sign up</a>
 				<h4 class="card-title mb-4 mt-1"></h4>
 				<form method="POST">
 				{% csrf_token %}
@@ -255,8 +255,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__title">
-                            <h2>Contact Us</h2>
-                            <br><h5> 2조 전기차 웹사이트</h5><br>
+                            <h2>Contact Us Now!</h2>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -265,52 +264,67 @@
                             <div class="option__item email"><i class="fa fa-envelope-o"></i> Colorlib@gmail.com</div>
                         </div>
                     </div>
-                    <div class="col-lg-2 offset-lg-1 col-md-3">
-                        <div class="footer__widget">
-                            <ul>
-                                <li><a href="{% url 'map' %}"><i class="fa fa-angle-right"></i>충전소 찾기</a></li>
-                            </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="{% static 'img/footer-logo.png' %}" alt=""></a>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3">
-                        <div class="footer__widget">
-                            <ul>
-                                <li><a href="{% url 'car' %}"><i class="fa fa-angle-right"></i>전기차 정보</a></li>
-                            </ul>
+                        <p>Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
+                            on (+1) 96 123 8888</p>
+                        <div class="footer__social">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="google"><i class="fa fa-google"></i></a>
+                            <a href="#" class="skype"><i class="fa fa-skype"></i></a>
                         </div>
+                        <p class="footer__copyright__text">Copyright &copy; <script>
+                                document.write(new Date().getFullYear());
+                            </script> <a href="#">Colorlib</a></p>
                     </div>
-                    <div class="col-lg-2 col-md-3">
-                        <div class="footer__widget">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3">
+                    <div class="footer__widget">
+                        <h5>Infomation</h5>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer__widget">
+                        <h5>Infomation</h5>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <div class="footer__brand">
+                        <h5>Top Brand</h5>
                         <ul>
-                            <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Abarth</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Acura</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Alfa Romeo</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Audi</a></li>
                         </ul>
                         <ul>
-                            <li><a href="contact"><i class="fa fa-angle-right"></i>로그인</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> BMW</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Chevrolet</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Ferrari</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Honda</a></li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="footer__social">
-                    <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8" class="facebook"><i class="fa fa-youtube-play"></i></a>
-                    <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle" class="twitter"><i class="fa fa-github"></i></a>
-                    <a href="https://www.google.com/search?safe=strict&hl=ko&sxsrf=ALeKk02fcjZOzs1ygjVQcDQKtX4wKanO0g%3A1613440586986&source=hp&ei=SiYrYMvDOdiDoATLh6CAAg&iflsig=AINFCbYAAAAAYCs0WuOAP2uaVCh25qmHNfhW6Kic2pLM&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAgAELEDEIMBMggIABCxAxCDATINCAAQhwIQsQMQgwEQFDIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBOg0IIxDNAxDqAhAnEIsDOgoIIxDqAhAnEIsDOgIIADoFCAAQsQM6BwgAEIcCEBRQtBVYmCBg3yFoAnAAeAGAAaQBiAGpB5IBAzAuN5gBAKABAaoBB2d3cy13aXqwAQq4AQI&sclient=gws-wiz&ved=0ahUKEwjLkLTIpu3uAhXYAYgKHcsDCCAQ4dUDCAc&uact=5" class="google"><i class="fa fa-google"></i></a>
-                    <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds" class="skype"><i class="fa fa-chrome"></i></a>
-                </div>
-
-                </div>
             </div>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <div class="footer__copyright__text">
-                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
-            </div>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </div>
     </footer>
     <!-- Footer Section End -->

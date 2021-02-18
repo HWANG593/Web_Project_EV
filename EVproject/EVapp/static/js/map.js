@@ -1,56 +1,58 @@
-positions = [];
-markers = [];
-
-
+var positions = [];
+var markers = [];
+var locPosition;
 
 $('#num0').click( function() {
   $.ajax({
       url:'http://localhost:8000/EVapp/loadMapData/0',
       dataType:'json',
       type:'GET',
-      //data:{'msg':$('#msg').val()},
       success:function(result){
           delmap();                                                
           mapdata(result);
+          //console.log(positions);
       }
   });
 });
 
 $('#num1').click( function() {
-                $.ajax({
-                    url:'http://localhost:8000/EVapp/loadMapData/1',
-                    dataType:'json',
-                    type:'GET',
-                    //data:{'msg':$('#msg').val()},
-                    success:function(result){
-                        delmap();                                                
-                        mapdata(result);
-                    }
-                });
+    $.ajax({
+        url:'http://localhost:8000/EVapp/loadMapData/1',
+        dataType:'json',
+        type:'GET',
+        success:function(result){
+            delmap();
+            mapdata(result);
+        }
+    });
 });
 
 $('#num2').click( function() {
-                $.ajax({
-                    url:'http://localhost:8000/EVapp/loadMapData/2',
-                    dataType:'json',
-                    type:'GET',
-                    //data:{'msg':$('#msg').val()},
-                    success:function(result){
-                        delmap();
-                        mapdata(result);
-                    }
-                });
+    $.ajax({
+        url:'http://localhost:8000/EVapp/loadMapData/2',
+        dataType:'json',
+        type:'GET',
+        //data:{'msg':$('#msg').val()},
+        success:function(result){
+            delmap();
+            mapdata(result);
+        }
+    });
 });
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 mapOption = {
     center: new kakao.maps.LatLng(37.56682, 126.97865), // 지도의 중심좌표
-    level: 8, // 지도의 확대 레벨
+    level: 6, // 지도의 확대 레벨
     mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
 };
 
 // 지도를 생성한다
 var map = new kakao.maps.Map(mapContainer, mapOption);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
 if (navigator.geolocation) {
@@ -60,7 +62,7 @@ if (navigator.geolocation) {
         var lat = position.coords.latitude, // 위도
             lon = position.coords.longitude; // 경도
 
-        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+        locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
             message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
 
         // 마커와 인포윈도우를 표시합니다
@@ -73,6 +75,7 @@ if (navigator.geolocation) {
         message = 'geolocation을 사용할수 없어요..'
         displayMarker(locPosition, message);
 }
+console.log(locPosition);
 
 // 지도에 마커와 인포윈도우를 표시하는 함수입니다
 function displayMarker(locPosition, message) {
@@ -185,7 +188,7 @@ function drawMap(){
               '           </div>' +
               '            <div class="desc">' +
               '                <div class="ellipsis">' + place.addr + '</div>' +
-              '		         <div class="jibun ellipsis"> 운영 시간 : ' + place.starttime +'<span> - </span>' + place.endtime + '</div>' +
+              '               <div class="jibun ellipsis"> 운영 시간 : ' + place.starttime +'<span> - </span>' + place.endtime + '</div>' +
               '                <div class="ellipsis"> >'+ place.slowYN +  place.fastYN + '</div>' +
               '                <div class="ellipsis">'+ place.fasttype + '</div>' +
               '            </div>' +
@@ -218,6 +221,11 @@ function delmap(){
     markers[i].setMap(null);  
     //positions[i]=null;    
   } 
-  positions = [];
-  markers = [];
+  positions.length = 0;
+  markers.length = 0;
+}
+function setCenter() {
+    // 지도 중심을 이동 시킵니다
+    map.setCenter(locPosition);
+
 }

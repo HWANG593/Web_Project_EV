@@ -1,5 +1,7 @@
 from django import forms
-from .models import Question, Answer
+from .models import Question, Answer, Comment
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class NewQuestionForm(forms.ModelForm):
     subject = forms.CharField(
@@ -21,3 +23,18 @@ class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer
         fields = ['content',]
+
+class UserForm(UserCreationForm):
+    email = forms.EmailField(label="이메일")
+
+    class Meta:
+        model = User
+        fields = ("username", "email")
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
+        labels = {
+            'content': '댓글내용',
+        }

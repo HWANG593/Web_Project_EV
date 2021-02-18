@@ -1,20 +1,249 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="ko">
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="description" content="HVAC Template">
+    <meta name="keywords" content="HVAC, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-    <form method="POST" action="{% url 'login' %}">
+
+<div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__widget">
+            <a href="#"><i class="fa fa-cart-plus"></i></a>
+            <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+            <a href="#" class="primary-btn">Add Car</a>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <ul class="offcanvas__widget__add">
+            <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li>
+            <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li>
+        </ul>
+        <div class="offcanvas__phone__num">
+            <i class="fa fa-phone"></i>
+            <span>(+12) 345 678 910</span>
+        </div>
+        <div class="offcanvas__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li><i class="fa fa-clock-o"></i> Week day: 00:00 am to 24:00 pm</li>
+                            <li><i class="fa fa-envelope-o"></i> hys9633@naver.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__phone">
+                                <i class="fa fa-phone"></i>
+                                <span>02-1544-9001</span>
+                            </div>
+                            <div class="header__top__social">
+                                <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle"><i class="fa fa-github"></i></a>
+                                <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8"><i class="fa fa-youtube"></i></a>
+                                <a href="https://www.google.co.kr/search?safe=strict&source=hp&ei=rCYrYLG9EdeTr7wPqfKi2Ac&iflsig=AINFCbYAAAAAYCs0vLq8tMS5gM00fO1IIUNMuMpZdEB1&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyBAgAEAM6AggAOgUIABCxA1CQBlj1EWCwE2gCcAB4AYABkQGIAc4IkgEDMC44mAEAoAEBqgEHZ3dzLXdperABAA&sclient=gws-wiz&ved=0ahUKEwixw-n2pu3uAhXXyYsBHSm5CHsQ4dUDCAc&uact=5"><i class="fa fa-google"></i></a>
+                                <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds"><i class="fa fa-chrome"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <!--  수정  -->
+                            <ul>
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'map' %}">충전소 찾기</a></li>
+                                <li><a href="{% url 'car' %}">전기차 모델</a></li>
+                                <li><a href="#">구매 및 지원</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'purchase' %}">보조금 계산</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'question_list' %}">게시판</a></li>
+                                <li class="active">
+                                {% if user.is_authenticated %}
+                                    <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}">로그인</a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="header__nav__widget">
+                            <div class="header__nav__widget__btn">
+                                <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+                            </div>
+                            <a href="{% url 'signup'%}" class="primary-btn">회원가입</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+
+
+<div class="container my-3">
+<!--    또 수정 -->
+    <div class="row">
+        <div class="col-4">
+            <h4>로그인</h4>
+        </div>
+        <div class="col-8 text-right">
+            <span>또는 <a href="{% url 'signup' %}">계정을 만드세요.</a></span>
+        </div>
+    </div>
+<!--    여기까지 -->
+    <form method="post" class="post-form" action="{% url 'login' %}">
         {% csrf_token %}
-        <p>username</p>
-        <input type="text" name="username">
-        <br>
-        <p>password</p>
-        <input type="text" name="password">
-        <br>
-        <input type="submit" value="로그인">
+<!--        또 수정 -->
+        <input type="hidden" name="next" value="{{ next }}">
+        {% include "form_errors.html" %}
+        <div class="form-group">
+            <label for="username">사용자ID</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.value|default_if_none:'' }}">
+        </div>
+        <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.value|default_if_none:'' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
     </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+        <div class="container">
+            <div class="footer__contact">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__title">
+                            <h2>Contact Us</h2>
+                            <br><h5> 2조 전기차 웹사이트</h5><br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__option">
+                            <div class="option__item"><i class="fa fa-phone"></i> 02-1544-9001</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> hys9633@naver.com</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'map' %}"><i class="fa fa-angle-right"></i>충전소 찾기</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'car' %}"><i class="fa fa-angle-right"></i>전기차 정보</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'purchase' %}"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                    <div class="footer__brand">
+                        <ul>
+                            <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-angle-right"></i>로그인</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__social">
+                    <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8" class="facebook"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle" class="twitter"><i class="fa fa-github"></i></a>
+                    <a href="https://www.google.com/search?safe=strict&hl=ko&sxsrf=ALeKk02fcjZOzs1ygjVQcDQKtX4wKanO0g%3A1613440586986&source=hp&ei=SiYrYMvDOdiDoATLh6CAAg&iflsig=AINFCbYAAAAAYCs0WuOAP2uaVCh25qmHNfhW6Kic2pLM&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAgAELEDEIMBMggIABCxAxCDATINCAAQhwIQsQMQgwEQFDIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBOg0IIxDNAxDqAhAnEIsDOgoIIxDqAhAnEIsDOgIIADoFCAAQsQM6BwgAEIcCEBRQtBVYmCBg3yFoAnAAeAGAAaQBiAGpB5IBAzAuN5gBAKABAaoBB2d3cy13aXqwAQq4AQI&sclient=gws-wiz&ved=0ahUKEwjLkLTIpu3uAhXYAYgKHcsDCCAQ4dUDCAc&uact=5" class="google"><i class="fa fa-google"></i></a>
+                    <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds" class="skype"><i class="fa fa-chrome"></i></a>
+                </div>
+
+                </div>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <div class="footer__copyright__text">
+                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+<!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

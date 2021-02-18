@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="ko">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="HVAC Template">
@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HVAC | Template</title>
 
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -68,15 +69,15 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul class="header__top__widget">
-                            <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li>
-                            <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li>
+                            <li><i class="fa fa-clock-o"></i> Week day: 00:00 am to 24:00 pm</li>
+                            <li><i class="fa fa-envelope-o"></i> hys9633@naver.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="header__top__right">
                             <div class="header__top__phone">
                                 <i class="fa fa-phone"></i>
-                                <span>(+12) 345 678 910</span>
+                                <span>05-1544-9001</span>
                             </div>
                             <div class="header__top__social">
                                 <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle"><i class="fa fa-github"></i></a>
@@ -106,16 +107,16 @@
                                 <li><a href="{% url 'car' %}">전기차 정보</a></li>
                                 <li><a href="#">구매 및 지원</a>
                                     <ul class="dropdown">
-                                        <li><a href="{% url 'about' %}">국고 보조금</a></li>
-                                        <li><a href="{% url 'car_details' %}">지자체 보조금</a></li>
+                                        <li><a href="{% url 'purchase' %}">보조금</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{% url 'question_list' %}">게시판</a></li>
-                                <li><a href="{% url 'contact' %}">로그인</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{% url 'car_details' %}">내 정보</a></li>
-                                        <li><a href="{% url 'blog_details' %}">즐겨찾기</a></li>
-                                    </ul>
+                                <li>
+                                {% if user.is_authenticated %}
+                                    <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}">로그인</a>
+                                    {% endif %}
                                 </li>
                             </ul>
                         </nav>
@@ -123,7 +124,7 @@
                             <div class="header__nav__widget__btn">
                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
                             </div>
-                            <a href="#" class="primary-btn">회원가입</a>
+                            <a href="{% url 'signup'%}" class="primary-btn">회원가입</a>
                         </div>
                     </div>
                 </div>
@@ -147,33 +148,47 @@
                                 <h2 id="FindTitle">전기차 충전소를 찾아보세요</h2></br>
                             </div>
                             <!--Hero form -->
-                            <form action="#" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" placeholder="What are you looking for?">
+                            <form action="{% url 'mapSearch' %}" class="search-box" method="GET">
+                                <div class="input-form">                                    
+                                    <input type="text" name="mapword" placeholder="What are you looking for?">
                                 </div>
                                 <div class="select-form">
                                     <div class="select-itms">
-                                        <select name="select" id="select1" style="display: none;">
+                                        <select name="mapselect" id="select1" style="display: none;">
                                             <option value="">모든 지역</option>
-                                            <option value="">서울</option>
-                                            <option value="">경기도</option>
-                                            <option value="">제주도</option>
-                                            <option value="">강원도</option>
+                                            <option value="서울">서울</option>
+                                            <option value="경기도">경기도</option>
+                                            <option value="제주도">제주도</option>
+                                            <option value="강원도">강원도</option>
+                                            <option value="충청북도">충청북도</option>
+                                            <option value="충청남도">충청남도</option>
+                                            <option value="경상북도">경상북도</option>
+                                            <option value="경상남도">경상남도</option>
+                                            <option value="전라북도">전라북도</option>
+                                            <option value="전라북도">전라남도</option>
                                         </select>
                                         <div class="nice-select" tabindex="0">
-                                            <span class="current">모든 지역</span>
+                                            <span class="current" >모든 지역</span>
                                                 <ul class="list">
                                                     <li data-value="" class="option selected">모든 지역</li>
-                                                    <li data-value="" class="option">서울</li>
-                                                    <li data-value="" class="option">경기도</li>
-                                                    <li data-value="" class="option">제주도</li>
-                                                    <li data-value="" class="option">강원도</li>
+                                                    <li data-value="서울" class="option">서울</li>
+                                                    <li data-value="경기도" class="option">경기도</li>
+                                                    <li data-value="제주도" class="option">제주도</li>
+                                                    <li data-value="강원도" class="option">강원도</li>
+                                                    <li data-value="충청북도" class="option">충청북도</li>
+                                                    <li data-value="충청남도" class="option">충청남도</li>
+                                                    <li data-value="경상북도" class="option">경상북도</li>
+                                                    <li data-value="경상남도" class="option">경상남도</li>
+                                                    <li data-value="전라북도" class="option">전라북도</li>
+                                                    <li data-value="전라남도" class="option">전라남도</li>
                                                 </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    <a href="#">Search</a>
+                                     <!--<a href="#">Search</a>-->
+                                     <!--style=""-->
+                                    <a><input type="submit" value="Search" style="width: 100%; height: 60px; color: white;background-color:transparent;  border:0px transparent solid;"></input></a>
                                 </div>
                             </form>
                         </div>
@@ -353,8 +368,8 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__contact__option">
-                            <div class="option__item"><i class="fa fa-phone"></i> (+12) 345 678 910</div>
-                            <div class="option__item email"><i class="fa fa-envelope-o"></i> Colorlib@gmail.com</div>
+                            <div class="option__item"><i class="fa fa-phone"></i> 02-1544-9001</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> hys9633@naver.com</div>
                         </div>
                     </div>
                     <div class="col-lg-2 offset-lg-1 col-md-3">
@@ -374,7 +389,7 @@
                     <div class="col-lg-2 col-md-3">
                         <div class="footer__widget">
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
+                                <li><a href="{% url 'purchase' %}"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
                             </ul>
                         </div>
                     </div>
@@ -384,7 +399,7 @@
                             <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
                         </ul>
                         <ul>
-                            <li><a href="contact"><i class="fa fa-angle-right"></i>로그인</a></li>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-angle-right"></i>로그인</a></li>
                         </ul>
                     </div>
                 </div>

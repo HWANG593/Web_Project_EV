@@ -7,7 +7,7 @@
     <meta name="keywords" content="HVAC, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>질문게시판</title>
+    <title>TheEV 게시판</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -65,21 +65,21 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul class="header__top__widget">
-                            <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li>
-                            <li><i class="fa fa-envelope-o"></i> Info.colorlib@gmail.com</li>
+                            <li><i class="fa fa-clock-o"></i> Week day: 00:00 am to 24:00 pm</li>
+                            <li><i class="fa fa-envelope-o"></i> hys9633@naver.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="header__top__right">
                             <div class="header__top__phone">
                                 <i class="fa fa-phone"></i>
-                                <span>(+12) 345 678 910</span>
+                                <span>02-1544-9001</span>
                             </div>
                             <div class="header__top__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle"><i class="fa fa-github"></i></a>
+                                <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8"><i class="fa fa-youtube"></i></a>
+                                <a href="https://www.google.co.kr/search?safe=strict&source=hp&ei=rCYrYLG9EdeTr7wPqfKi2Ac&iflsig=AINFCbYAAAAAYCs0vLq8tMS5gM00fO1IIUNMuMpZdEB1&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyBAgAEAM6AggAOgUIABCxA1CQBlj1EWCwE2gCcAB4AYABkQGIAc4IkgEDMC44mAEAoAEBqgEHZ3dzLXdperABAA&sclient=gws-wiz&ved=0ahUKEwixw-n2pu3uAhXXyYsBHSm5CHsQ4dUDCAc&uact=5"><i class="fa fa-google"></i></a>
+                                <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds"><i class="fa fa-chrome"></i></a>
                             </div>
                         </div>
                     </div>
@@ -98,21 +98,21 @@
                         <nav class="header__menu">
                             <!--  수정  -->
                             <ul>
-                                <li ><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'index' %}">Home</a></li>
                                 <li><a href="{% url 'map' %}">충전소 찾기</a></li>
-                                <li><a href="{% url 'car' %}">전기차 정보</a></li>
+                                <li><a href="{% url 'car' %}">전기차 모델</a></li>
                                 <li><a href="#">구매 및 지원</a>
                                     <ul class="dropdown">
-                                        <li><a href="{% url 'about' %}">국고 보조금</a></li>
-                                        <li><a href="{% url 'car_details' %}">지자체 보조금</a></li>
+                                        <li><a href="{% url 'purchase' %}">보조금 계산</a></li>
                                     </ul>
                                 </li>
                                 <li class="active"><a href="{% url 'question_list' %}">게시판</a></li>
-                                <li><a href="{% url 'contact' %}">로그인</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{% url 'car_details' %}">내 정보</a></li>
-                                        <li><a href="{% url 'blog_details' %}">즐겨찾기</a></li>
-                                    </ul>
+                                <li>
+                                {% if user.is_authenticated %}
+                                    <a class="nav-link" href="{% url 'logout' %}">{{ user.username }} (로그아웃)</a>
+                                    {% else %}
+                                    <a href="{% url 'login' %}">로그인</a>
+                                    {% endif %}
                                 </li>
                             </ul>
                         </nav>
@@ -120,7 +120,7 @@
                             <div class="header__nav__widget__btn">
                                 <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
                             </div>
-                            <a href="#" class="primary-btn">회원가입</a>
+                            <a href="{% url 'signup'%}" class="primary-btn">회원가입</a>
                         </div>
                     </div>
                 </div>
@@ -136,10 +136,26 @@
 {% load EVapp_filter %}
 
 <div class="container my-3">
+ <div class="row justify-content-between my-3">
+     <div class="col-2">
+            <select class="form-control so">
+                <option value="recent" {% if so == 'recent' %}selected{% endif %}>최신순</option>
+                <option value="recommend" {% if so == 'recommend' %}selected{% endif %}>추천순</option>
+                <option value="popular" {% if so == 'popular' %}selected{% endif %}>인기순</option>
+            </select>
+     </div>
+     <div class="col-4 input-group">
+         <input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
+         <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="btn_search">찾기</button>
+         </div>
+     </div>
+ </div>
  <table class="table">
  <thead class="thead-dark">
  <tr>
  <th>번호</th>
+ <th>추천</th>
  <th>제목</th>
  <th>작성자</th>
  <th>작성일시</th>
@@ -153,12 +169,17 @@
        <a href="/EVapp/board/{{ q.id }}/">{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</a>
    </td>
    <td>
+       {% if q.voter.all.count > 0 %}
+       <span class="badge badge-warning px-2 py-1">{{ q.voter.all.count }}</span>
+       {% endif %}
+   </td>
+   <td>
        <a href="/EVapp/board/{{ q.id }}/">{{ q.subject }}</a>
        {% if q.answer_set.count > 0 %}
        <span class="text-danger small ml-2">{{ q.answer_set.count }}</span>
        {% endif %}
    </td>
-   <td><a href="/EVapp/board/{{ q.id }}/"> / </a></td>
+   <td><a href="/EVapp/board/{{ q.id }}/"> {{ q.author }} </a></td>
    <td><a href="/EVapp/board/{{ q.id }}/"> {{ q.create_at }} </a></td>
    </tr>
  {% endfor %}
@@ -169,7 +190,7 @@
         <!-- 이전페이지 -->
         {% if question_list.has_previous %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
+            <a class="page-link" data-page="{{ question_list.previous_page_number }}" href="#">이전</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -181,11 +202,11 @@
         {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
             {% if page_number == question_list.number %}
             <li class="page-item active" aria-current="page">
-                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
             </li>
             {% else %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
             </li>
             {% endif %}
         {% endif %}
@@ -193,7 +214,7 @@
         <!-- 다음페이지 -->
         {% if question_list.has_next %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ question_list.next_page_number }}">다음</a>
+            <a class="page-link" data-page="{{ question_list.next_page_number }}" href="#">다음</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -203,10 +224,84 @@
     </ul>
     <!-- 페이징처리 끝 -->
     <a href="{% url 'question_create' %}" class="btn btn-primary float-right">질문 등록</a>
-
-
 </div>
+<form id="searchForm" method="get" action="{% url 'index' %}">
+    <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}">
+    <input type="hidden" id="page" name="page" value="{{ page }}">
+    <input type="hidden" id="so" name="so" value="{{ so }}">
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+        <div class="container">
+            <div class="footer__contact">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__title">
+                            <h2>Contact Us</h2>
+                            <br><h5> 2조 전기차 웹사이트</h5><br>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__option">
+                            <div class="option__item"><i class="fa fa-phone"></i> 02-1544-9001</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> hys9633@naver.com</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'map' %}"><i class="fa fa-angle-right"></i>충전소 찾기</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'car' %}"><i class="fa fa-angle-right"></i>전기차 정보</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <ul>
+                                <li><a href="{% url 'purchase' %}"><i class="fa fa-angle-right"></i>구매 및 지원</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                    <div class="footer__brand">
+                        <ul>
+                            <li><a href="{% url 'question_list' %}"><i class="fa fa-angle-right"></i> 게시판</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="{% url 'login' %}"><i class="fa fa-angle-right"></i>로그인</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__social">
+                    <a href="https://www.youtube.com/results?search_query=%EC%A0%84%EA%B8%B0%EC%B0%A8" class="facebook"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://github.com/bongsuyeon/Project_Electric-Vehicle" class="twitter"><i class="fa fa-github"></i></a>
+                    <a href="https://www.google.com/search?safe=strict&hl=ko&sxsrf=ALeKk02fcjZOzs1ygjVQcDQKtX4wKanO0g%3A1613440586986&source=hp&ei=SiYrYMvDOdiDoATLh6CAAg&iflsig=AINFCbYAAAAAYCs0WuOAP2uaVCh25qmHNfhW6Kic2pLM&q=%EC%A0%84%EA%B8%B0%EC%B0%A8&oq=%EC%A0%84%EA%B8%B0%EC%B0%A8&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyCAgAELEDEIMBMggIABCxAxCDATINCAAQhwIQsQMQgwEQFDIICAAQsQMQgwEyCAgAELEDEIMBMggIABCxAxCDATIICAAQsQMQgwEyCAgAELEDEIMBOg0IIxDNAxDqAhAnEIsDOgoIIxDqAhAnEIsDOgIIADoFCAAQsQM6BwgAEIcCEBRQtBVYmCBg3yFoAnAAeAGAAaQBiAGpB5IBAzAuN5gBAKABAaoBB2d3cy13aXqwAQq4AQI&sclient=gws-wiz&ved=0ahUKEwjLkLTIpu3uAhXYAYgKHcsDCCAQ4dUDCAc&uact=5" class="google"><i class="fa fa-google"></i></a>
+                    <a href="https://www.google.co.kr/chrome/?brand=JJTC&gclid=Cj0KCQiA1KiBBhCcARIsAPWqoSqAXvtBiUxMxP79vieCyAc4s_SEDG1Vm-IUOHPlViJmpfIZa5BXjTUaAoiLEALw_wcB&gclsrc=aw.ds" class="skype"><i class="fa fa-chrome"></i></a>
+                </div>
+
+                </div>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <div class="footer__copyright__text">
+                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+    <!-- Footer Section End -->
 
     <!-- Js Plugins -->
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
@@ -218,5 +313,23 @@
     <script src="{% static 'js/jquery.slicknav.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    <script type='text/javascript'>
+    $(document).ready(function(){
+        $(".page-link").on('click', function() {
+            $("#page").val($(this).data("page"));
+            $("#searchForm").submit();
+        });
+        $("#btn_search").on('click', function() {
+            $("#kw").val($(".kw").val());
+            $("#page").val(1);  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+            $("#searchForm").submit();
+        });
+        $(".so").on('change', function() {
+            $("#so").val($(this).val());
+            $("#page").val(1);
+            $("#searchForm").submit();
+        });
+    });
+    </script>
 </body>
 </html>
