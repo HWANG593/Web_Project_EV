@@ -38,26 +38,165 @@ def about(request):
     template = loader.get_template('EVapp/about.html')
     if request.method == 'POST':
         car_kind = request.POST.get('sel3')
+        location = request.POST.get('sel1')
+
+        if location == 'Seoul':
+            area_money = 400
+
+        elif location == 'Busan':
+            area_money = 500
+
+        elif location == 'Daegu':
+            area_money = 450
+
+        elif location == 'Incheon':
+            area_money = 420
+
+        elif location == 'Gwangju':
+            area_money = 500
+
+        elif location == 'Daejeon':
+            area_money = 700
+
+        elif location == 'Ulsan':
+            area_money = 550
+
+        elif location == 'Sejong':
+            area_money = 300
+
+        elif location == 'Gyeonggi':
+            area_money = 500
+
+        elif location == 'Kangwon':
+            area_money = 520
+
+        elif location == 'Chungbuk':
+            area_money = 800
+
+        elif location == 'Chungnam':
+            area_money = 850
+
+        elif location == 'Jeonbuk':
+            area_money = 900
+
+        elif location == 'Jeonnam':
+            area_money = 840
+
+        elif location == 'Gyeongbuk':
+            area_money = 850
+
+        elif location == 'Gyeongnam':
+            area_money = 700
+
+        elif location == 'Jeju':
+            area_money = 400
 
         if car_kind == 'A':
             country_money = 800
-            area_money = 400
-            area_state_money = (country_money/800)*area_money
-            total_money = country_money + area_state_money
-            context = {'country_money' : country_money,
-                       'area_state_money' : area_state_money,
-                       'total_money' : total_money}
-            return HttpResponse(template.render(context, request))
 
         elif car_kind == 'B':
-            country_money = 700
-            area_money = 400
-            area_state_money = (country_money/800)*area_money
-            total_money = country_money + area_state_money
-            context = {'country_money' : country_money,
-                       'area_state_money' : area_state_money,
-                       'total_money' : total_money}
-            return HttpResponse(template.render(context, request))
+            country_money = 690
+        
+        elif car_kind == 'C':
+            country_money = 733
+
+        elif car_kind == 'D':
+            country_money = 701
+
+        elif car_kind == 'E':
+            country_money = 800
+
+        elif car_kind == 'F':
+            country_money = 780
+
+        elif car_kind == 'G':
+            country_money = 717
+
+        elif car_kind == 'H':
+            country_money = 750
+
+        elif car_kind == 'I':
+            country_money = 688
+
+        elif car_kind == 'J':
+            country_money = 722
+
+        elif car_kind == 'K':
+            country_money = 722
+
+        elif car_kind == 'L':
+            country_money = 722
+
+        elif car_kind == 'M':
+            country_money = 673
+
+        elif car_kind == 'N':
+            country_money = 673
+
+        elif car_kind == 'O':
+            country_money = 770
+
+        elif car_kind == 'P':
+            country_money = 770
+
+        elif car_kind == 'Q':
+            country_money = 649
+
+        elif car_kind == 'R':
+            country_money = 605
+
+        elif car_kind == 'S':
+            country_money = 605
+
+        elif car_kind == 'T':
+            country_money = 0
+
+        elif car_kind == 'U':
+            country_money = 684
+
+        elif car_kind == 'V':
+            country_money = 341
+
+        elif car_kind == 'W':
+            country_money = 329
+
+        elif car_kind == 'X':
+            country_money = 0
+
+        elif car_kind == 'Y':
+            country_money = 0
+
+        elif car_kind == 'Z':
+            country_money = 0
+
+        elif car_kind == 'AA':
+            country_money = 0
+
+        elif car_kind == 'BB':
+            country_money = 639
+
+        area_state_money = (country_money / 800) * area_money
+        area_state_money = int(area_state_money)
+
+        total_money = country_money + area_state_money
+        total_money = int(total_money)
+
+        if country_money >= 400:
+            price_coef = 100
+        elif country_money >= 0:
+            price_coef = 50
+        else:
+            price_coef = 0
+
+
+        context = {'country_money': country_money,
+                   'area_state_money': area_state_money,
+                   'total_money': total_money,
+                   'price_coef': price_coef}
+        return HttpResponse(template.render(context, request))
+
+
+
     else:
         return HttpResponse(template.render(None,request))
 
