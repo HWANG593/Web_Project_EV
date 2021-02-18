@@ -1,7 +1,6 @@
-
 $('#sub').click(function () {
     $.ajax({
-        url: 'http://localhost:8000/EVapp/about/',
+        url: 'http://localhost:8000/EVapp/purchase/',
         //data: 'html',
         //type: 'GET',
         success: function (data) {
@@ -11,13 +10,13 @@ $('#sub').click(function () {
             var area_money;
             var country_money;
             var sum;
+            var country_money;
 
             // select element에서 선택된 option의 value가 저장된다.
             var sel1Value = area.options[area.selectedIndex].value;
             var sel2Value = car.options[car.selectedIndex].value;
             var sel3Value = brand.options[brand.selectedIndex].value;
 
-            console.log(sel1Value);
             if(sel1Value ==''|| sel2Value == '' || sel3Value == ''){
                 if (sel1Value == '')
                     alert("지역을 선택해주세요");
@@ -179,11 +178,24 @@ $('#sub').click(function () {
                 else if (sel3Value == 'SMART EV Z') {
                     country_money = 0;
                 }
+
+                //
+                if (country_money >= 400){
+                    price_coef = '100%';
+                }
+                if (country_money > 0){
+                    price_coef = '50%';
+                }
+                if (country_money == 0){
+                    price_coef = '0%';
+                }
+
                 country_money = (area_money/ 800)*country_money;
                 sum = area_money + country_money;
                 document.getElementById('area_money').innerText = area_money;
                 document.getElementById('country_money').innerText = country_money;
                 document.getElementById('sum').innerText = sum;
+                document.getElementById('price_coef').innerText = price_coef;
             }
         }
     })
